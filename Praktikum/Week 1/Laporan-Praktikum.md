@@ -1,4 +1,4 @@
-# Template Laporan Praktikum Struktur Data
+# Laporan Praktikum Struktur Data
 
 ## 1. Nama, NIM, Kelas
 - **Nama**: Julian Saputra
