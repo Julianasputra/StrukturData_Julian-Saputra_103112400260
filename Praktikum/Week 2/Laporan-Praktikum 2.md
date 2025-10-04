@@ -31,7 +31,7 @@ Penjelasan : Program ini digunakan untuk mengubah suhu dari satuan Celcius ke Fa
 
 Output : 
 
-![alt text](Screenshots/image-3.png)
+![alt text](ss/ouputG2.png)
 
 ### 4.3 Guided 3
 ![alt text](ss/guided3.png)
@@ -40,7 +40,7 @@ Penjelasan : Program ini digunakan untuk mendemonstrasikan penggunaan operator t
 
 Output : 
 
-![alt text](Screenshots/image-5.png)
+![alt text](ss/outputG3.png)
 
 ## 5. Unguided
 ### 5.1 Unguided 1
