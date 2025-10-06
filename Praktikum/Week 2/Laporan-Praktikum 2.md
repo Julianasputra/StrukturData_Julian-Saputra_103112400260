@@ -28,7 +28,7 @@ Output :
 ### 4.2 Guided 2
 ![alt text](ss/guided2.png)
 
-Penjelasan : Program ini digunakan untuk mengubah suhu dari satuan Celcius ke Fahrenheit, lalu memberikan komentar lucu berdasarkan hasilnya.
+Penjelasan : Program ini digunakan untuk menunjukkan cara berkerja pointer. Variabel 'hargaproduk' menyimpan harga awal yaitu '50000', lalu pointer 'ptrHarga' digunakan untuk menyimpan alamat memori dari variabel tersebut. Program menampilkan harga awal dan alamat memorinya, kemudian memberikan diskon 10% melalui pointer. Karena pointer terhubung langsung ke variabel 'hargaproduk', nilainya otomatis berubah. Terakhir, program menampilkan harga setelah diberi diskon.
 
 Output : 
 
@@ -37,7 +37,7 @@ Output :
 ### 4.3 Guided 3
 ![alt text](ss/guided3.png)
 
-Penjelasan : Program ini digunakan untuk mendemonstrasikan penggunaan operator tanda plus (+) pada ekspresi aritmatika. Pada program tersebut, variabel r diberi nilai awal 20, kemudian nilai variabel s dihitung menggunakan ekspresi 20 + + + r. Ekspresi tersebut sebenarnya dibaca sebagai 20 + (+(+r)), sehingga nilai r tetap 20. Hasil dari penjumlahan 20 dengan 20 disimpan ke dalam variabel s, yaitu 40. Setelah itu, program menampilkan nilai aktual dari variabel r dan s ke layar untuk menunjukkan bahwa variabel r tidak berubah, sedangkan s berisi hasil perhitungan.
+Penjelasan : Program ini digunakan untuk menghitung nilai rata-rata siswa dan menambahkan bonus nilai. Nama siswa disimpan sebagai “Adi” dengan nilai tugas 80 dan UTS 90. Program menghitung rata-rata menggunakan fungsi 'hitungratarata()', lalu menampilkan hasilnya dengan 'cetakProfil()'. Setelah itu, fungsi 'beriNilaibonus()' menambah nilai sebesar 5 melalui referensi, sehingga nilai asli ikut berubah. Terakhir, program menampilkan nilai setelah diberi bonus.
 
 Output : 
 
