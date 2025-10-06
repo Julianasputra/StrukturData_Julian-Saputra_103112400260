@@ -18,7 +18,8 @@ Struktur data adalah cara untuk menyimpan dan mengorganisir data dalam komputer 
 ### 4.1 Guided 1
 ![alt text](ss/guided1.png)
 
-Penjelasan : Program ini bertujuan untuk menghitung diskon belanja jika total belanja lebih dari RP. 30.000 . Jika memenuhi syarat, maka pembeli akan mengadaptkan diskon 10%. Jika tidak, maka akan muncul pesan kalau pesanan masih kurang.
+Penjelasan :
+Program ini digunakan untuk mencatat jumlah buku yang dibaca setiap hari selama satu minggu dan menghitung totalnya. Data jumlah buku disimpan dalam array, kemudian ditampilkan satu per satu menggunakan perulangan for. Setiap nilai juga dijumlahkan ke dalam variabel TotalBuku. Setelah selesai, program menampilkan total buku yang berhasil dibaca dalam seminggu. Program ini sederhana namun efektif untuk membuat laporan baca buku mingguan secara otomatis.
 
 Output :
 
