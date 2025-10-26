@@ -9,11 +9,27 @@
 Saya sangat termotivasi memperlajari struktur data, kenapa saya belajat stuktur data karena saya sadar kalau struktur data itu pondasi yang sangat penting dalam pemrograman contohnya seperti kita akan membangun rumah yang membutuhkan pondasi. Lalu juga banyak aplikasi atau teknologi di dunia nyata contohnya kaya sistem pencarian, manajemen database, sampai ada juga kecerdasan buatan yang bekerja secara efisien dikarenakan menggunakan struktur data yang tepat dan baik. Jadi karena itu saya termotivasi belajar struktur data ini.
 
 ## 3. Dasar Teori
-Struktur data adalah cara untuk menyimpan dan mengorganisir data dalam komputer agar dapat digunakan secara efisien. Jadi dalam konteks mata kuliah struktur data itu ada beberapa struktur yang sering kita gunakan yaitu adalah Graf dan Pohon. Berikut adalah teori dasar mengenai **Graf** dan **Pohon**:
+Struktur data adalah cara untuk menyimpan dan mengorganisir data dalam komputer agar dapat digunakan secara efisien. Dalam konteks mata kuliah Struktur Data, salah satu struktur yang penting dan sering digunakan adalah Linked List, khususnya Double Linked List (DLL). Struktur ini digunakan ketika diperlukan penyimpanan data yang dinamis, fleksibel, dan mudah dimodifikasi (seperti penambahan atau penghapusan elemen di tengah daftar).
 
-- **Konsep Array**: merupakan struktur data yang digunakan untuk menyimpan beberapa nilai sekaligus dalam satu variabel dengan tipe data yang sama. Jika biasanya kita menyimpan satu nilai dalam satu variabel, seperti int a = 10;, maka dengan array kita bisa menyimpan banyak nilai seperti int a[5] = {10, 20, 30, 40, 50};. Setiap nilai array disimpan dalam indeks tertentu yang dimulai dari 0, sehingga memudahkan akses dan pengelolaan data dalam jumlah banyak. Array sering digunakan dalam berbagai kasus seperti daftar nilai siswa, stok barang, atau data sensor.
-- **Konsep Pointer**: merupakan variabel khusus yang menyimpan alamat memori dari variabel lain. Jika variabel biasa menyimpan nilai, pointer justru menyimpan lokasi dari nilai tersebut. Dengan pointer, kita bisa mengakses dan mengubah data secara langsung pada alamat aslinya. Pointer juga sangat berguna ketika bekerja dengan array dan fungsi, terutama ketika ingin mengubah nilai asli dari variabel di dalam fungsi tanpa mengembalikan nilai. Dalam analogi sederhana, pointer seperti seseorang yang mengetahui alamat rumah orang lain, sehingga ia bisa datang langsung dan melakukan perubahan di lokasi tersebut.
-- **Konsep Fungsi dan Prodedur**: merupakan blok kode yang digunakan untuk memecah program menjadi bagian-bagian yang lebih kecil agar lebih rapi dan mudah dikelola. Fungsi adalah blok kode yang mengembalikan nilai, sedangkan prosedur (disebut juga void function) hanya menjalankan tugas tanpa mengembalikan nilai. Keduanya bisa menerima parameter, yaitu data yang dikirim dari luar untuk diolah. Dengan menggunakan fungsi dan prosedur, kita bisa menghindari penulisan kode berulang-ulang, membuat program lebih efisien dan mudah diperbaiki.
+Berikut teori dasar yang berkaitan dengan soal dan program yang telah dibuat:
+
+Konsep Double Linked List (DLL):
+Double Linked List merupakan bentuk lanjutan dari Single Linked List, di mana setiap elemen (node) memiliki dua pointer: satu menunjuk ke elemen sebelumnya (prev) dan satu menunjuk ke elemen berikutnya (next). Dengan dua arah ini, proses penelusuran dapat dilakukan maju (forward) maupun mundur (backward). DLL memudahkan operasi seperti penyisipan dan penghapusan elemen di berbagai posisi (awal, tengah, atau akhir) tanpa perlu menggeser elemen lain seperti pada array.
+
+Konsep Pointer dalam Linked List:
+Pointer adalah variabel khusus yang menyimpan alamat memori dari variabel lain. Dalam DLL, pointer digunakan untuk menghubungkan antar-node. Contohnya, P->next menunjuk ke node berikutnya, sedangkan P->prev menunjuk ke node sebelumnya. Pemahaman pointer sangat penting karena kesalahan dalam pengaturan next atau prev dapat menyebabkan kehilangan data (memory leak) atau crash program.
+
+Konsep Fungsi smartInsert:
+Fungsi ini merupakan bentuk insertion dengan logika kondisional yang kompleks, di mana data baru tidak hanya ditambahkan di awal atau akhir, tetapi juga disisipkan berdasarkan aturan tertentu (misalnya ganjil/genap, nilai lebih besar/kecil, atau posisi tertentu di antara dua nilai). Fungsi ini menggunakan if–else bertingkat untuk menangani berbagai kondisi, termasuk ketika list kosong atau saat elemen baru harus berada di antara dua node tertentu. Konsep ini menunjukkan penerapan logika pemrograman dan kontrol alur (flow control) pada struktur data dinamis.
+
+Konsep Fungsi conditionalDelete:
+Fungsi ini digunakan untuk menghapus elemen dalam list berdasarkan kondisi tertentu (misalnya, menghapus semua angka ganjil, semua angka genap, atau elemen yang memenuhi kriteria khusus). Prosesnya melibatkan penelusuran seluruh node dan pemeriksaan kondisi setiap elemen dengan if–else. Jika elemen memenuhi syarat, maka node tersebut dihapus dan pointer diatur ulang agar hubungan antar-node tetap konsisten. Fungsi ini juga menunjukkan penerapan algoritma traversing dan manajemen memori dinamis.
+
+Konsep Traversal (Penelusuran Data):
+Traversal adalah proses mengunjungi setiap node dalam linked list untuk menampilkan, mencari, atau memodifikasi data. Dalam DLL, traversal dapat dilakukan dari depan ke belakang (forward) maupun dari belakang ke depan (backward), berkat adanya dua pointer (next dan prev). Proses ini sering digunakan dalam menampilkan hasil seperti "Forward: 3 5 7 8 6 4" dan "Backward: 4 6 8 7 5 3".
+
+Konsep Fungsi dan Modularisasi Program:
+Fungsi seperti insertFirst, insertLast, smartInsert, dan conditionalDelete dibuat agar program lebih modular dan mudah dipahami. Dengan memisahkan setiap operasi ke dalam fungsi tersendiri, kode menjadi lebih rapi, mudah diuji, serta bisa digunakan kembali (reusable). Pendekatan modular ini juga mendukung prinsip abstraksi, di mana setiap fungsi memiliki tanggung jawab yang jelas.
 
 ## 4. Guided
 ### 4.1 Guided 1
