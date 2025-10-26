@@ -35,17 +35,27 @@ Output :
 
 ![alt text](ss/ouputG2.png)
 
-### 4.3 Guided 3
-![alt text](ss/guided3.png)
+## 5. Unguided
+### 5.1 Unguided 1
+![alt text](ss/unguided1.png)
 
-Penjelasan : Program ini digunakan untuk menghitung nilai rata-rata siswa dan menambahkan bonus nilai. Nama siswa disimpan sebagai “Adi” dengan nilai tugas 80 dan UTS 90. Program menghitung rata-rata menggunakan fungsi 'hitungratarata()', lalu menampilkan hasilnya dengan 'cetakProfil()'. Setelah itu, fungsi 'beriNilaibonus()' menambah nilai sebesar 5 melalui referensi, sehingga nilai asli ikut berubah. Terakhir, program menampilkan nilai setelah diberi bonus.
+Penjelasan : Program ini digunakan untuk mengelola data stok beberapa jenis buku, menghitung total stok, mencari stok yang paling sedikit, dan menambahkan bonus stok secara otomatis. Data stok disimpan dalam array bernama stokBuku yang berisi lima angka, yaitu {12, 8, 25, 5, 18}. Untuk menampilkan seluruh stok, program menggunakan prosedur cetakStok(), sehingga semua nilai dalam array dapat ditampilkan dengan rapi. Setelah itu, fungsi hitungTotalStok() digunakan untuk menjumlahkan seluruh stok buku. Kemudian, program mencari buku dengan stok paling sedikit menggunakan fungsi cariStokPalingSedikit(), yang mengembalikan pointer ke elemen dengan nilai terkecil. Pointer tersebut dikirim ke prosedur tambahStokBonus(), yang menambahkan bonus sebesar 10 ke stok buku tersebut melalui alamat memorinya, sehingga nilai aslinya langsung berubah. Terakhir, stok buku ditampilkan kembali untuk menunjukkan perubahan setelah bonus diberikan.
 
 Output : 
 
-![alt text](ss/outputG3.png)
+![alt text](ss/outputU1.png)
 
-## 5. Unguided
-### 5.1 Unguided 1
+### 5.2 Unguided 2
+![alt text](ss/unguided1.png)
+
+Penjelasan : Program ini digunakan untuk mengelola data stok beberapa jenis buku, menghitung total stok, mencari stok yang paling sedikit, dan menambahkan bonus stok secara otomatis. Data stok disimpan dalam array bernama stokBuku yang berisi lima angka, yaitu {12, 8, 25, 5, 18}. Untuk menampilkan seluruh stok, program menggunakan prosedur cetakStok(), sehingga semua nilai dalam array dapat ditampilkan dengan rapi. Setelah itu, fungsi hitungTotalStok() digunakan untuk menjumlahkan seluruh stok buku. Kemudian, program mencari buku dengan stok paling sedikit menggunakan fungsi cariStokPalingSedikit(), yang mengembalikan pointer ke elemen dengan nilai terkecil. Pointer tersebut dikirim ke prosedur tambahStokBonus(), yang menambahkan bonus sebesar 10 ke stok buku tersebut melalui alamat memorinya, sehingga nilai aslinya langsung berubah. Terakhir, stok buku ditampilkan kembali untuk menunjukkan perubahan setelah bonus diberikan.
+
+Output : 
+
+![alt text](ss/outputU1.png)
+
+
+### 5.3 Unguided 3
 ![alt text](ss/unguided1.png)
 
 Penjelasan : Program ini digunakan untuk mengelola data stok beberapa jenis buku, menghitung total stok, mencari stok yang paling sedikit, dan menambahkan bonus stok secara otomatis. Data stok disimpan dalam array bernama stokBuku yang berisi lima angka, yaitu {12, 8, 25, 5, 18}. Untuk menampilkan seluruh stok, program menggunakan prosedur cetakStok(), sehingga semua nilai dalam array dapat ditampilkan dengan rapi. Setelah itu, fungsi hitungTotalStok() digunakan untuk menjumlahkan seluruh stok buku. Kemudian, program mencari buku dengan stok paling sedikit menggunakan fungsi cariStokPalingSedikit(), yang mengembalikan pointer ke elemen dengan nilai terkecil. Pointer tersebut dikirim ke prosedur tambahStokBonus(), yang menambahkan bonus sebesar 10 ke stok buku tersebut melalui alamat memorinya, sehingga nilai aslinya langsung berubah. Terakhir, stok buku ditampilkan kembali untuk menunjukkan perubahan setelah bonus diberikan.
