@@ -59,3 +59,29 @@ void balikStack(Stack &S) {
     }
 }
 
+void pushAscending(Stack &S, int x) {
+    Stack temp;
+    CreateStack(temp);
+
+    while (!isEmpty(S) && S.info[S.top] < x) {
+        push(temp, pop(S));
+    }
+
+    push(S, x);
+
+    while (!isEmpty(temp)) {
+        push(S, pop(temp));
+    }
+}
+
+void getInputStream(Stack &S) {
+    cout << "Masukkan angka : ";
+    string input;
+    cin >> input;
+
+    for (char c : input) {
+        push(S, c - '0'); 
+    }
+}
+
+
