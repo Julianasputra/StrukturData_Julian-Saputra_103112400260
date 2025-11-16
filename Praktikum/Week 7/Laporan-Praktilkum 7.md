@@ -9,47 +9,63 @@
 Saya sangat termotivasi memperlajari struktur data, kenapa saya belajat stuktur data karena saya sadar kalau struktur data itu pondasi yang sangat penting dalam pemrograman contohnya seperti kita akan membangun rumah yang membutuhkan pondasi. Lalu juga banyak aplikasi atau teknologi di dunia nyata contohnya kaya sistem pencarian, manajemen database, sampai ada juga kecerdasan buatan yang bekerja secara efisien dikarenakan menggunakan struktur data yang tepat dan baik. Jadi karena itu saya termotivasi belajar struktur data ini.
 
 ## 3. Dasar Teori
-Struktur data merupakan cara menyimpan dan mengatur data agar dapat digunakan secara efisien oleh komputer. Salah satu struktur data yang penting dan sering digunakan adalah stack, karena memiliki prinsip penyimpanan data yang sederhana namun sangat berguna untuk berbagai kasus, seperti pembalikan urutan data, pengecekan ekspresi matematika, dan manajemen memori pada program.
+Struktur data adalah cara untuk menyimpan dan mengelola data agar dapat digunakan secara efisien oleh komputer. Salah satu struktur data yang paling umum digunakan adalah queue, karena sangat cocok untuk situasi antrean atau pemrosesan data secara berurutan. Queue banyak dipakai pada sistem antrian layanan, manajemen proses di sistem operasi, buffer data, hingga simulasi antrian pada aplikasi.
 
 ### Berikut Dasar Teori nya :
 
-1. Konsep Stack (Tumpukan):
-Stack adalah struktur data yang menerapkan prinsip LIFO (Last In, First Out), artinya elemen terakhir yang dimasukkan ke dalam stack akan menjadi elemen pertama yang dikeluarkan. Operasi dasar pada stack meliputi:
-a. push(): menambahkan elemen ke puncak stack.
-b. pop(): menghapus elemen teratas dari stack.
-c. isEmpty() dan isFull(): digunakan untuk memeriksa apakah stack kosong atau penuh.
-Stack sering digunakan dalam pemrograman rekursif, sistem undo/redo, serta algoritma pembalikan data.
+1. Konsep Queue (Antrian)
+Queue adalah struktur data yang menerapkan prinsip FIFO (First In, First Out). Artinya, elemen yang pertama masuk ke dalam antrian akan menjadi elemen pertama yang keluar. Operasi dasar pada queue meliputi:
+a. enqueue() -> menambahkan elemen ke bagian belakang antrian.
+b. dequeue() -> menghapus elemen paling depan dari antrian.
+c. isEmpty() -> mengecek apakah antrian kosong.
+d. isFull() -> mengecek apakah antrian sudah penuh (untuk queue berbasis array).
+Konsep queue sangat sering digunakan dalam sistem nyata yang sifatnya “datang duluan dilayani duluan”, seperti antrean printer, penjadwalan proses, dan buffer multimedia.
 
-2. Konsep Fungsi push() dan pop():
-Fungsi push() berfungsi menambahkan elemen ke dalam stack selama masih ada ruang kosong, sedangkan pop() digunakan untuk menghapus dan mengambil elemen teratas dari stack. Implementasi fungsi ini umumnya menggunakan array sebagai wadah penyimpanan dan variabel top sebagai penanda posisi elemen teratas. Jika top sudah mencapai batas maksimum, maka stack dianggap penuh (overflow), sedangkan jika top bernilai -1 maka stack kosong (underflow).
+2. Konsep Queue Menggunakan Array
+Implementasi queue dengan array memerlukan penanda posisi depan dan belakang, biasanya berupa variabel head dan tail. Pada queue dasar, nilai head dan tail bergerak mengikuti penambahan atau pengurangan data. Namun, jika elemen paling depan dihapus, sering kali posisi harus digeser atau disesuaikan.
+Jika head = -1 dan tail = -1, berarti queue kosong.
+Jika tail mencapai indeks maksimum, berarti queue penuh.
 
-3. Konsep Fungsi pushAscending():
-Fungsi ini merupakan variasi dari operasi push() yang menambahkan elemen baru ke dalam stack dengan menjaga urutan ascending (menaik) berdasarkan nilai elemen. Artinya, setiap kali elemen baru dimasukkan, posisinya akan diatur agar urutan dari bawah ke atas tetap dari kecil ke besar. Konsep ini sering digunakan untuk menjaga keterurutan data secara otomatis dalam tumpukan.
+3. Konsep Circular Queue
+Circular queue adalah versi queue yang lebih efisien dibanding queue biasa karena indeks tail dapat “memutar” kembali ke indeks 0 ketika sudah mencapai batas array. Ini dicapai menggunakan operasi modulo (%).
+Contoh:
+tail = (tail + 1) % MAX_QUEUE
+Dengan cara ini, tidak ada proses penggeseran elemen saat dequeue, sehingga performanya lebih baik.
 
-4. Konsep Fungsi getInputStream():
-Fungsi ini digunakan untuk membaca input dari pengguna secara berurutan dan memasukkannya ke dalam stack. Input biasanya berupa karakter atau angka yang dibaca satu per satu menggunakan cin.get(). Proses ini berlanjut hingga pengguna menekan tombol Enter sebagai tanda akhir input. Dengan cara ini, data yang dimasukkan oleh pengguna langsung tersimpan dalam struktur stack dan dapat ditampilkan atau dibalik sesuai kebutuhan.
+4. Konsep Fungsi enqueue()
+Fungsi enqueue() bertugas memasukkan elemen ke antrian. Jika queue belum penuh, data ditempatkan di posisi tail, lalu nilai tail digeser satu langkah. Pada circular queue, pergeseran ini dilakukan menggunakan modulo agar indeks kembali ke awal jika mencapai batas array.
+Jika queue penuh, fungsi ini akan menampilkan pesan seperti “Antrean Penuh!” dan data tidak dimasukkan.
 
-5. Konsep Fungsi balikStack():
-Fungsi balikStack() digunakan untuk membalik urutan elemen dalam stack. Dengan menggunakan stack tambahan sementara, elemen dari stack asal dipindahkan satu per satu, sehingga urutannya terbalik. Konsep ini menunjukkan penerapan prinsip LIFO secara nyata — elemen terakhir yang dimasukkan menjadi yang pertama keluar, sehingga urutan data berubah total.
+5. Konsep Fungsi dequeue()
+Fungsi dequeue() mengambil elemen dari bagian depan queue. Jika queue tidak kosong, data pada posisi head dikembalikan lalu head digeser satu langkah.
+Pada implementasi non-circular, kadang elemen harus digeser ke kiri untuk merapatkan data.
+Pada circular queue, cukup menggeser head = (head + 1) % MAX_QUEUE, tanpa perlu geser manual.
+Jika queue kosong, fungsi ini mengeluarkan pesan “Antrean Kosong!” dan mengembalikan nilai tertentu seperti -1.
 
-6. Konsep Traversal dan Modularisasi Program:
-Traversal pada stack dilakukan dengan cara menelusuri isi stack dari elemen teratas hingga elemen terbawah. Dalam program, hal ini sering diimplementasikan melalui fungsi printInfo() untuk menampilkan isi stack. Setiap operasi (push, pop, balikStack, dan sebagainya) diletakkan dalam fungsi terpisah agar program lebih modular, mudah dipahami, serta mengikuti prinsip abstraksi dan reusabilitas kode.
+6. Konsep Fungsi printInfo()
+a. Fungsi ini berfungsi untuk menampilkan isi antrian. Cara traversal tergantung jenis queue:
+b. Pada queue biasa, data ditampilkan dari indeks head hingga tail.
+Pada circular queue, traversal dilakukan sambil memperhatikan “perputaran” indeks menggunakan modulo.
+Selain menampilkan isi, program juga sering mencetak posisi head dan tail sebagai informasi keadaan queue.
+
+7. Konsep Modularisasi pada Program Queue
+Untuk membuat program lebih rapi dan mudah dipahami, operasi queue seperti enqueue, dequeue, isEmpty, isFull, createQueue, dan printInfo dibuat dalam fungsi terpisah. Dengan cara ini, code menjadi lebih terstruktur, mudah diperbaiki, dan mengikuti prinsip abstraksi.
 
 ## 4. Guided
 ### 4.1 Guided 1
 ![alt text](ss/guided1.png)
 
-Penjelasan : stack.h itu header file yang berisi rancangan struktur data stack (tumpukan) dengan prinsip LIFO (Last In, First Out). Di dalamnya terdapat deklarasi struktur Stack yang menyimpan data dalam array berukuran maksimal 20 elemen (MaxEl = 20) dan variabel top sebagai penanda posisi elemen teratas. Nilai top akan bernilai -1 (Nil) jika stack kosong. stack.h ini juga berisi deklarasi fungsi-fungsi penting seperti CreateStack untuk membuat stack kosong, isEmpty dan isFull untuk mengecek kondisi stack, push untuk menambah data, pop untuk mengambil data teratas, printInfo untuk menampilkan isi stack, serta balikStack untuk membalik urutan isi stack. Secara singkat, stack.h berfungsi sebagai rancangan dasar yang mendefinisikan bentuk dan operasi dasar pada stack, sedangkan implementasi logikanya biasanya ditulis di file lain, yaitu stack.cpp.
+Penjelasan : Kode ini merupakan header untuk membuat ADT Queue menggunakan array. Queue dapat menampung maksimal 5 data bertipe int. Struktur Queue menyimpan array info, lalu head, tail, dan count untuk melacak posisi dan jumlah data. Fungsi createQueue digunakan untuk menginisialisasi queue, isEmptyQueue mengecek apakah queue kosong, dan isFullQueue mengecek apakah penuh. Fungsi enqueue menambahkan data ke belakang queue, dequeue mengambil data dari depan, dan printInfo menampilkan isi queue. Semua ini mengikuti prinsip FIFO (First In, First Out).
 
 ### 4.2 Guided 2
 ![alt text](ss/guided2.png)
 
-Penjelasan : stack.cpp ini berisi implementasi fungsi-fungsi yang sudah dideklarasikan di file stack.h. Fungsi CreateStack digunakan untuk membuat stack kosong dengan mengatur nilai top menjadi -1. Fungsi isEmpty dan isFull digunakan untuk memeriksa apakah stack kosong atau penuh. Fungsi push berfungsi menambahkan elemen baru ke bagian atas stack jika belum penuh, sedangkan pop digunakan untuk menghapus dan mengambil elemen teratas dari stack jika tidak kosong. Fungsi printInfo menampilkan isi stack dari elemen paling atas hingga paling bawah, dan akan menampilkan pesan jika stack kosong. Terakhir, fungsi balikStack digunakan untuk membalik urutan isi stack dengan cara memanfaatkan dua stack sementara. Secara keseluruhan, file ini berisi logika utama untuk mengoperasikan stack, mulai dari menambah, menghapus, menampilkan, hingga membalik data.
+Penjelasan : Kode ini merupakan implementasi queue menggunakan circular array. createQueue mengatur queue agar mulai kosong. isEmpty mengecek apakah queue kosong, dan isFull mengecek apakah queue penuh. Fungsi enqueue menambah data di posisi tail, lalu memajukan tail secara melingkar dan menambah count. Fungsi dequeue mengambil data dari posisi head, memajukan head secara melingkar, serta mengurangi count. Jika penuh atau kosong, muncul pesan peringatan. Fungsi printInfo menampilkan isi queue dari head sebanyak jumlah elemen. Semua proses mengikuti aturan FIFO (First In, First Out).
 
 ### 4.3 Guided 3
 ![alt text](ss/guided3.png)
 
-Penjelasan : Program ini fungsi main() yang digunakan untuk menguji operasi stack. Pertama, program membuat sebuah stack kosong dengan CreateStack(S). Kemudian beberapa operasi dilakukan: menambahkan elemen dengan push (3, 4, 8), menghapus elemen teratas dengan pop, lalu menambah elemen lagi (2, 3), menghapus lagi satu elemen, dan terakhir menambahkan angka 9. Setelah semua operasi selesai, program menampilkan isi stack menggunakan printInfo dengan judul "Stack Awal". Selanjutnya, fungsi balikStack dipanggil untuk membalik urutan isi stack, lalu hasilnya kembali ditampilkan dengan tulisan "Stack Setelah dibalik". Secara sederhana, program ini menunjukkan cara kerja dasar stack mulai dari penambahan, penghapusan, hingga pembalikan isi stack.
+Penjelasan : Kode main.cpp ini merupakan fungsi untuk menguji cara kerja ADT Queue yang telah dibuat. Program diawali dengan mencetak “Hello world!”, kemudian membuat sebuah objek Queue Q. Setelah itu, queue diinisialisasi dengan createQueue(Q) dan langsung ditampilkan isinya menggunakan printInfo(Q) yang pada awalnya tentu masih kosong. Selanjutnya, program menambahkan beberapa nilai ke dalam queue menggunakan enqueue, yaitu 5, 2, dan 7, di mana setiap penambahan selalu diikuti dengan printInfo untuk melihat perubahan isi queue. Setelah itu, program menghapus dua elemen dari depan queue menggunakan dequeue dan kembali menampilkan isi queue. Program kemudian menambahkan nilai baru, yaitu 4, dan menampilkannya lagi. Dua operasi dequeue terakhir mengeluarkan sisa elemen hingga queue kembali kosong. Secara keseluruhan, program ini memperlihatkan proses enqueue dan dequeue secara berurutan serta bagaimana kondisi queue berubah setelah setiap operasi, sesuai prinsip FIFO.
 
 Output : 
 
@@ -59,7 +75,9 @@ Output :
 ### 5.1 Unguided 1
 ![alt text](ss/unguided1.png)
 
-Penjelasan : Program ini merupakan implementasi dasar dari operasi stack (tumpukan) dalam bahasa C++. Pertama, program menampilkan teks “Hello world!” lalu membuat sebuah stack kosong dengan memanggil fungsi CreateStack(S). Setelah itu, program melakukan beberapa operasi push untuk menambahkan elemen ke dalam stack, seperti angka 3, 4, dan 8. Kemudian dilakukan pop untuk menghapus elemen teratas, lalu ditambahkan lagi elemen 2, 3, dan 9 dengan kombinasi push dan pop sesuai urutan yang ada. Setelah semua operasi dilakukan, program menampilkan isi stack menggunakan fungsi printInfo(S). Selanjutnya, program menampilkan teks “balik stack” dan memanggil fungsi balikStack(S) untuk membalik urutan elemen dalam stack, kemudian menampilkan hasil akhirnya kembali. Program ini bertujuan untuk menunjukkan cara kerja operasi dasar pada struktur data stack, seperti push, pop, dan pembalikan urutan elemen.
+Penjelasan : Kode ini merupakan versi sederhana dari queue yang disimpan dalam array biasa, tanpa konsep “melingkar”. Saat queue dibuat lewat createQueue, nilai head dan tail diset ke -1, artinya masih benar-benar kosong. Fungsi isEmptyQueue mengecek apakah queue kosong dengan melihat apakah tail masih -1, sedangkan isFullQueue mengecek apakah posisi tail sudah mencapai batas array (MAX_QUEUE - 1).
+Pada fungsi enqueue, kalau queue masih kosong, posisi head dipindah ke 0, lalu tail dinaikkan satu dan data disimpan. Kalau queue penuh, muncul pesan peringatan. Sedangkan pada dequeue, data paling depan diambil dari posisi head, lalu seluruh elemen di belakangnya digeser maju satu posisi supaya tetap rapi. Setelah itu tail diturunkan satu. Kalau setelah penghapusan ternyata queue kosong lagi, head dan tail dikembalikan ke -1. Terakhir, fungsi printInfo hanya menampilkan posisi head–tail dan isi queue saat ini.
+Singkatnya, kode ini menunjukkan cara kerja queue yang mengikuti aturan FIFO, tapi dengan metode geser setiap kali ada elemen yang dikeluarkan.
 
 Output : 
 
@@ -68,7 +86,9 @@ Output :
 ### 5.2 Unguided 2
 ![alt text](ss/unguided2.png)
 
-Penjelasan : Program ini contoh penggunaan stack dengan fitur pushAscending, yaitu menambahkan elemen ke dalam stack secara berurutan dari nilai terkecil ke terbesar. Pertama, program menampilkan teks “Hello World!” lalu membuat stack kosong dengan CreateStack(S). Setelah itu, beberapa nilai seperti 3, 4, 8, 2, 3, dan 9 dimasukkan menggunakan pushAscending, sehingga elemen-elemen dalam stack otomatis tersusun naik berdasarkan nilainya. Fungsi printInfo(S) kemudian menampilkan isi stack. Selanjutnya, program menampilkan teks “balik stack” dan memanggil balikStack(S) untuk membalik urutan elemen di dalam stack, lalu hasil akhirnya kembali ditampilkan dengan printInfo(S). Program ini menunjukkan cara menambah elemen secara terurut naik serta membalik urutan stack dengan mudah.
+Penjelasan : Kode ini merupakan implementasi queue sederhana yang memakai array biasa, tapi dengan cara kerja yang lebih praktis karena tidak perlu menggeser elemen saat dequeue. Saat queue dibuat lewat createQueue, nilai head dan tail diset ke -1 supaya jelas kalau antreannya masih kosong. Fungsi isEmptyQueue mengecek dua kondisi: apakah tail masih -1, atau apakah head sudah lewat tail—ini digunakan untuk mendeteksi kalau queue kosong setelah beberapa kali dequeue. Sementara itu, isFullQueue hanya mengecek apakah tail sudah mencapai batas array.
+Pada fungsi enqueue, kalau queue penuh, muncul pesan antrean penuh. Kalau masih ada ruang, data baru dimasukkan ke posisi tail + 1. Kalau sebelumnya queue kosong, head otomatis di-set ke 0 lebih dulu. Untuk dequeue, data diambil dari posisi head, lalu head dinaikkan satu langkah. Kalau setelah dinaikkan ternyata head melewati tail, itu berarti queue sudah kosong lagi, jadi head dan tail dikembalikan ke -1. Terakhir, printInfo cuma menampilkan posisi head–tail dan isi queue dari head sampai tail.
+Secara keseluruhan, kode ini menunjukkan queue dengan model FIFO, tapi lebih simpel karena tidak perlu menggeser elemen setiap kali menghapus data.
 
 Output : 
 
@@ -78,16 +98,19 @@ Output :
 ### 5.3 Unguided 3
 ![alt text](ss/unguided3.png)
 
-Penjelasan : Program ini digunakan untuk membaca input dari pengguna dan menyimpannya ke dalam stack, lalu menampilkan isi stack sebelum dan sesudah dibalik. Pertama, program menampilkan teks “Hello world!” kemudian membuat stack kosong dengan CreateStack(S). Selanjutnya, fungsi getInputStream(S) digunakan untuk menerima input angka dari pengguna dan memasukkannya ke dalam stack satu per satu. Setelah semua data dimasukkan, fungsi printInfo(S) menampilkan isi stack dari atas ke bawah. Program lalu menampilkan pesan “balik stack”, memanggil fungsi balikStack(S) untuk membalik urutan elemen dalam stack, dan kembali menampilkan hasil akhirnya dengan printInfo(S). Program ini menunjukkan cara membaca input user ke dalam stack dan membalik urutannya.
+Penjelasan : Kode ini merupakan implementasi queue versi circular, jadi ujung array bisa “muter” kembali ke awal kalau sudah sampai batas. Saat queue dibuat lewat createQueue, nilai head dan tail diset ke 0. Queue dianggap kosong kalau posisi head dan tail sama, dan dianggap penuh kalau posisi tail satu langkah di depan head dalam bentuk melingkar.
+Pada fungsi enqueue, kalau queue belum penuh, data dimasukkan ke posisi tail, lalu tail digeser maju satu langkah dengan rumus modulo supaya bisa muter lagi ke indeks 0 jika sudah mentok. Untuk dequeue, data diambil dari posisi head, lalu head juga digeser maju dengan cara yang sama. Tidak ada penggeseran elemen secara manual, jadi lebih efisien.
+Fungsi printInfo menampilkan posisi head–tail, lalu mencetak isi queue mulai dari head sampai tail dengan cara melingkar juga, berhenti ketika indeksnya sudah bertemu tail. Secara keseluruhan, kode ini menunjukkan cara kerja circular queue yang rapi dan efisien, cocok dipakai untuk antrean dengan ukuran tetap.
 
 Output : 
 
 ![alt text](ss/outputU3.png)
 
 ## 6. Kesimpulan
-Jasi berdasarkan hasil pengerjaan program di atas, dapat saya simpulkan bahwa tujuan pembelajaran mengenai penerapan struktur data Stack (Tumpukan) telah berhasil dicapai. Melalui implementasi berbagai operasi seperti push, pop, pushAscending, getInputStream, printInfo, dan balikStack, saya memahami bagaimana data dapat disimpan dan dikelola menggunakan prinsip LIFO (Last In, First Out). Struktur data Stack memungkinkan pengelolaan data secara efisien, terutama dalam proses pembalikan urutan dan pengambilan elemen terakhir yang dimasukkan. Selain itu, penggunaan fungsi-fungsi terpisah menjadikan program lebih terstruktur, mudah dipahami, dan mendukung konsep modularisasi. Dengan demikian, praktikum ini memberikan pemahaman yang baik mengenai konsep dasar dan penerapan nyata dari struktur data Stack dalam bahasa C++.
+Jadi berdasarkan hasil pengerjaan program di atas, dapat saya simpulkan bahwa tujuan pembelajaran mengenai penerapan struktur data Queue (Antrian) telah berhasil dicapai. Melalui implementasi berbagai operasi seperti enqueue, dequeue, isEmpty, isFull, serta printInfo, saya mampu memahami bagaimana data dapat disimpan dan dikelola menggunakan prinsip FIFO (First In, First Out). Struktur data Queue memungkinkan pengelolaan data secara berurutan, di mana elemen yang masuk lebih dulu akan menjadi yang pertama keluar.
+Selain itu, penerapan konsep circular queue memberikan efisiensi yang lebih baik karena tidak memerlukan penggeseran elemen secara manual, sehingga operasi berjalan lebih optimal. Penggunaan fungsi-fungsi terpisah juga membuat program lebih rapi, mudah dipahami, dan sesuai dengan konsep modularisasi. Dengan demikian, praktikum ini memberikan pemahaman yang baik mengenai konsep dasar dan penerapan nyata dari struktur data Queue dalam bahasa C++.
 
 ## 7. Referensi
-1. Programiz. “Stack Data Structure.” https://www.programiz.com/dsa/stack
-2. GeeksforGeeks. “Stack Data Structure (Introduction and Implementation).” https://www.geeksforgeeks.org/stack-data-structure/
-3. W3Schools. “C++ Functions.” https://www.w3schools.com/cpp/cpp_functions.asp
+1. Programiz. “Queue Data Structure.” https://www.programiz.com/dsa/queue
+2. GeeksforGeeks. “Queue Data Structure (Introduction and Implementation).” https://www.geeksforgeeks.org/queue-data-structure/
+3. W3Schools. “C++ Arrays & Functions.” https://www.w3schools.com/cpp/cpp_arrays.asp
