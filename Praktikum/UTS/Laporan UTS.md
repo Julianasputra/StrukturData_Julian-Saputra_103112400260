@@ -154,9 +154,9 @@ Memanggil fungsi insert(nilai), deleteLast(), viewDepan(), reverseList() dan men
 3. Output Program
 
 Berikut adalah hasil eksekusi program (output) ketika dijalankan.
-```
-![alt text](output/outputUTS.png)
-```
+
+![alt text](outputUTS.png)
+
 
 4. Penjelasan Lanjutan (Analisis Output)
 
