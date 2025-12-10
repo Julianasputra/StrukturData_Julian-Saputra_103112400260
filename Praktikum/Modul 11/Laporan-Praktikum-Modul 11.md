@@ -74,7 +74,7 @@ Penjelasan : Kode main.cpp ini merupakan fungsi untuk menguji cara kerja ADT Que
 
 Output : 
 
-![alt text](ss/outputG3.png)
+![alt text](ss/outputG4.png)
 
 ## 5. Unguided
 ### 5.1 Unguided 1
