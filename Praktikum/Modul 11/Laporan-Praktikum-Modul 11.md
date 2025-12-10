@@ -172,9 +172,13 @@ Karena list melingkar, traversal tidak boleh memakai while(node != NULL).
 Melainkan traversal menggunakan pola:
 
 p = first
+
 do {
+
     print(p->info)
+
     p = p->next
+    
 } while (p != first)
 
 Dengan cara ini, list dapat ditampilkan tanpa infinite loop.
