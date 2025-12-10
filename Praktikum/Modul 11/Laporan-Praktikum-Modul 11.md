@@ -109,27 +109,44 @@ Induk ID: 2
     -> Anak ID: 19
 
     -> Anak ID: 20
-    
+
 Traversal bersarang ini sangat penting untuk memvisualisasikan multilist.
 
 6. Konsep Circular Linked List
+
 Circular Linked List adalah bentuk linked list di mana:
 - Node terakhir tidak menunjuk ke NULL
 - Tetapi menunjuk kembali ke node pertama
+
 Sehingga list bersifat melingkar.
 
 Kelebihan Circular Linked List:
 - Tidak ada akhir list -> traversal bisa berputar
 - Efisien untuk struktur data yang membutuhkan “rotasi”
+
 Cocok untuk:
 - sistem giliran (round robin)
 - antrian melingkar
 - permainan kartu
 - aplikasi navigasi siklus
+
 Pada tugas ini circular linked list digunakan untuk menyimpan data siswa atau harga barang secara melingkar.
 
-7. Konsep Modularisasi pada Program Queue
-Untuk membuat program lebih rapi dan mudah dipahami, operasi queue seperti enqueue, dequeue, isEmpty, isFull, createQueue, dan printInfo dibuat dalam fungsi terpisah. Dengan cara ini, code menjadi lebih terstruktur, mudah diperbaiki, dan mengikuti prinsip abstraksi.
+7. Konsep Insert pada Circular Linked List
+
+Operasi insert pada circular list umumnya:
+
+a. insertFirst()
+- Jika list kosong -> first menunjuk dirinya sendiri
+- Jika tidak -> node baru disisipkan sebelum first
+- Node terakhir harus menunjuk ke node baru
+
+b. insertLast()
+- Menambahkan node sebelum node first
+- Update last -> menunjuk kembali ke first
+- Pointer previous juga disesuaikan (doubly circular list)
+
+Circular list harus mempertahankan bentuk lingkaran setelah setiap operasi.
 
 ## 4. Guided
 ### 4.1 Guided 1
