@@ -9,44 +9,93 @@
 Saya sangat termotivasi memperlajari struktur data, kenapa saya belajat stuktur data karena saya sadar kalau struktur data itu pondasi yang sangat penting dalam pemrograman contohnya seperti kita akan membangun rumah yang membutuhkan pondasi. Lalu juga banyak aplikasi atau teknologi di dunia nyata contohnya kaya sistem pencarian, manajemen database, sampai ada juga kecerdasan buatan yang bekerja secara efisien dikarenakan menggunakan struktur data yang tepat dan baik. Jadi karena itu saya termotivasi belajar struktur data ini.
 
 ## 3. Dasar Teori
-Struktur data adalah cara untuk menyimpan dan mengelola data agar dapat digunakan secara efisien oleh komputer. Salah satu struktur data yang paling umum digunakan adalah queue, karena sangat cocok untuk situasi antrean atau pemrosesan data secara berurutan. Queue banyak dipakai pada sistem antrian layanan, manajemen proses di sistem operasi, buffer data, hingga simulasi antrian pada aplikasi.
+Struktur data adalah cara mengorganisir, menyimpan, dan mengelola data agar dapat diakses serta diproses dengan efisien. Pada praktikum ini digunakan dua jenis struktur data yang lebih kompleks, yaitu Multi Linked List (untuk hubungan Induk–Anak) dan Circular Linked List (untuk struktur melingkar tanpa ujung). Kedua struktur ini digunakan untuk menangani data hierarki dan data berulang yang membutuhkan efisiensi traversal.
 
 ### Berikut Dasar Teori nya :
 
-1. Konsep Queue (Antrian)
-Queue adalah struktur data yang menerapkan prinsip FIFO (First In, First Out). Artinya, elemen yang pertama masuk ke dalam antrian akan menjadi elemen pertama yang keluar. Operasi dasar pada queue meliputi:
-a. enqueue() -> menambahkan elemen ke bagian belakang antrian.
-b. dequeue() -> menghapus elemen paling depan dari antrian.
-c. isEmpty() -> mengecek apakah antrian kosong.
-d. isFull() -> mengecek apakah antrian sudah penuh (untuk queue berbasis array).
-Konsep queue sangat sering digunakan dalam sistem nyata yang sifatnya “datang duluan dilayani duluan”, seperti antrean printer, penjadwalan proses, dan buffer multimedia.
+1. Konsep Multi Linked List (Induk–Anak)
+Multi Linked List adalah struktur data yang terdiri dari dua level linked list:
+a. List Induk → berisi elemen-elemen induk
+b. List Anak → setiap induk memiliki list anak sendiri
+Pada tugas ini:
+a. Induk berisi ID induk
+b. Anak berisi ID anak yang terhubung ke induknya
+Setiap induk memiliki:
+a. data (info)
+b. pointer ke anak pertama dan terakhir (doubly linked list)
+c. pointer ke induk berikutnya dan sebelumnya
+Multi linked list membantu pemisahan data berdasarkan kategori, sehingga efisien untuk operasi pencarian dan pengelompokan.
 
-2. Konsep Queue Menggunakan Array
-Implementasi queue dengan array memerlukan penanda posisi depan dan belakang, biasanya berupa variabel head dan tail. Pada queue dasar, nilai head dan tail bergerak mengikuti penambahan atau pengurangan data. Namun, jika elemen paling depan dihapus, sering kali posisi harus digeser atau disesuaikan.
-Jika head = -1 dan tail = -1, berarti queue kosong.
-Jika tail mencapai indeks maksimum, berarti queue penuh.
+2. Struktur Data Induk dan Anak
+Pada program, terdapat dua struktur utama:
+a. Struktur Induk
+Berisi:
+- info induk
+- list anak (first & last)
+- pointer next dan prev
+b. Struktur Anak
+Berisi:
+- info anak
+- pointer next dan prev (doubly linked list)
+Struktur ganda ini memungkinkan data tersusun secara hierarki.
 
-3. Konsep Circular Queue
-Circular queue adalah versi queue yang lebih efisien dibanding queue biasa karena indeks tail dapat “memutar” kembali ke indeks 0 ketika sudah mencapai batas array. Ini dicapai menggunakan operasi modulo (%).
-Contoh:
-tail = (tail + 1) % MAX_QUEUE
-Dengan cara ini, tidak ada proses penggeseran elemen saat dequeue, sehingga performanya lebih baik.
+3. Konsep Insert pada Multi Linked List
+a. Insert Last Induk
+Menambah induk di bagian belakang list induk.
+Langkah:
+a. Jika list kosong -> induk menjadi elemen pertama
+b. Jika tidak -> letakkan di posisi terakhir
+c. Perbarui pointer prev dan next
 
-4. Konsep Fungsi enqueue()
-Fungsi enqueue() bertugas memasukkan elemen ke antrian. Jika queue belum penuh, data ditempatkan di posisi tail, lalu nilai tail digeser satu langkah. Pada circular queue, pergeseran ini dilakukan menggunakan modulo agar indeks kembali ke awal jika mencapai batas array.
-Jika queue penuh, fungsi ini akan menampilkan pesan seperti “Antrean Penuh!” dan data tidak dimasukkan.
+b. Insert Last Anak
+Menambahkan anak pada induk tertentu.
+Langkah:
+a. Temukan induk dengan findInduk()
+b. Tambahkan anak pada list anak induk
+c. Perbarui pointer prev dan next
 
-5. Konsep Fungsi dequeue()
-Fungsi dequeue() mengambil elemen dari bagian depan queue. Jika queue tidak kosong, data pada posisi head dikembalikan lalu head digeser satu langkah.
-Pada implementasi non-circular, kadang elemen harus digeser ke kiri untuk merapatkan data.
-Pada circular queue, cukup menggeser head = (head + 1) % MAX_QUEUE, tanpa perlu geser manual.
-Jika queue kosong, fungsi ini mengeluarkan pesan “Antrean Kosong!” dan mengembalikan nilai tertentu seperti -1.
+Contoh struktur hasil:
+Induk 1 -> Anak: 10, 11
+Induk 2 -> Anak: 19, 20
 
-6. Konsep Fungsi printInfo()
-a. Fungsi ini berfungsi untuk menampilkan isi antrian. Cara traversal tergantung jenis queue:
-b. Pada queue biasa, data ditampilkan dari indeks head hingga tail.
-Pada circular queue, traversal dilakukan sambil memperhatikan “perputaran” indeks menggunakan modulo.
-Selain menampilkan isi, program juga sering mencetak posisi head dan tail sebagai informasi keadaan queue.
+4. Konsep Delete pada Multi Linked List
+Tugas yang dikerjakan: menghapus anak terakhir dari induk tertentu.
+Aturan:
+- Jika list anak kosong -> tidak ada yang dihapus
+- Jika satu elemen -> hapus dan set first=last=NULL
+- Jika lebih dari satu -> pindahkan last ke last->prev
+Contoh hasil setelah delete untuk Induk 1:
+Sebelum: 10 -> 11
+Sesudah: 10
+
+5. Konsep Traversal Multi Linked List
+Traversal dilakukan dua level:
+- traversal induk
+- pada setiap induk, traversal anak
+Fungsi printInfo() dilakukan untuk menampilkan:
+Induk ID: 1
+    -> Anak ID: 10
+    -> Anak ID: 11
+Induk ID: 2
+    -> Anak ID: 19
+    -> Anak ID: 20
+Traversal bersarang ini sangat penting untuk memvisualisasikan multilist.
+
+6. Konsep Circular Linked List
+Circular Linked List adalah bentuk linked list di mana:
+- Node terakhir tidak menunjuk ke NULL
+- Tetapi menunjuk kembali ke node pertama
+Sehingga list bersifat melingkar.
+
+Kelebihan Circular Linked List:
+- Tidak ada akhir list -> traversal bisa berputar
+- Efisien untuk struktur data yang membutuhkan “rotasi”
+Cocok untuk:
+- sistem giliran (round robin)
+- antrian melingkar
+- permainan kartu
+- aplikasi navigasi siklus
+Pada tugas ini circular linked list digunakan untuk menyimpan data siswa atau harga barang secara melingkar.
 
 7. Konsep Modularisasi pada Program Queue
 Untuk membuat program lebih rapi dan mudah dipahami, operasi queue seperti enqueue, dequeue, isEmpty, isFull, createQueue, dan printInfo dibuat dalam fungsi terpisah. Dengan cara ini, code menjadi lebih terstruktur, mudah diperbaiki, dan mengikuti prinsip abstraksi.
