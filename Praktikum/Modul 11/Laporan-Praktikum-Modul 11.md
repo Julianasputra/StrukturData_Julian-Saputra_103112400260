@@ -91,16 +91,25 @@ Sebelum: 10 -> 11
 Sesudah: 10
 
 5. Konsep Traversal Multi Linked List
+
 Traversal dilakukan dua level:
 - traversal induk
 - pada setiap induk, traversal anak
+
 Fungsi printInfo() dilakukan untuk menampilkan:
+
 Induk ID: 1
+
     -> Anak ID: 10
+
     -> Anak ID: 11
+
 Induk ID: 2
+
     -> Anak ID: 19
+
     -> Anak ID: 20
+    
 Traversal bersarang ini sangat penting untuk memvisualisasikan multilist.
 
 6. Konsep Circular Linked List
