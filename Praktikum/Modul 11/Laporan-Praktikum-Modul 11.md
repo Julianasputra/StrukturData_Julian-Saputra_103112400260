@@ -178,12 +178,33 @@ do {
     print(p->info)
 
     p = p->next
-    
+
 } while (p != first)
 
 Dengan cara ini, list dapat ditampilkan tanpa infinite loop.
 
-10. 
+10. Konsep Modularisasi (Memecah Fungsi)
+
+Baik multilist maupun circular list ditulis menggunakan modularisasi:
+- createList()
+- alokasi()
+- insertFirst()
+- insertLast()
+- deleteLast()
+- printInfo()
+
+Tujuan modularisasi:
+- kode lebih rapi
+- mudah diperbaiki
+- setiap fungsi fokus pada satu tugas (single responsibility)
+
+Pada main.cpp, programmer hanya memanggil:
+
+insertLast(L, data);
+deleteFirst(L);
+printInfo(L);
+
+Sehingga alur program lebih bersih.
 
 ## 4. Guided
 ### 4.1 Guided 1
