@@ -52,6 +52,7 @@ Struktur ganda ini memungkinkan data tersusun secara hierarki.
 3. Konsep Insert pada Multi Linked List
 
 a. Insert Last Induk
+
 Menambah induk di bagian belakang list induk.
 
 Langkah:
@@ -60,6 +61,7 @@ Langkah:
 - Perbarui pointer prev dan next
 
 b. Insert Last Anak
+
 Menambahkan anak pada induk tertentu.
 
 Langkah:
@@ -70,6 +72,7 @@ Langkah:
 Contoh struktur hasil:
 
 Induk 1 -> Anak: 10, 11
+
 Induk 2 -> Anak: 19, 20
 
 4. Konsep Delete pada Multi Linked List
