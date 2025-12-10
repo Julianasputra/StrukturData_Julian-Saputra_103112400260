@@ -15,15 +15,15 @@ Struktur data adalah cara mengorganisir, menyimpan, dan mengelola data agar dapa
 
 1. Konsep Multi Linked List (Induk–Anak)
 Multi Linked List adalah struktur data yang terdiri dari dua level linked list:
-a. List Induk → berisi elemen-elemen induk
-b. List Anak → setiap induk memiliki list anak sendiri
+- List Induk -> berisi elemen-elemen induk
+- List Anak -> setiap induk memiliki list anak sendiri
 Pada tugas ini:
-a. Induk berisi ID induk
-b. Anak berisi ID anak yang terhubung ke induknya
+- Induk berisi ID induk
+- Anak berisi ID anak yang terhubung ke induknya
 Setiap induk memiliki:
-a. data (info)
-b. pointer ke anak pertama dan terakhir (doubly linked list)
-c. pointer ke induk berikutnya dan sebelumnya
+- data (info)
+- pointer ke anak pertama dan terakhir (doubly linked list)
+- pointer ke induk berikutnya dan sebelumnya
 Multi linked list membantu pemisahan data berdasarkan kategori, sehingga efisien untuk operasi pencarian dan pengelompokan.
 
 2. Struktur Data Induk dan Anak
