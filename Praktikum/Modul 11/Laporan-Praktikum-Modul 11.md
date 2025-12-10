@@ -148,6 +148,39 @@ b. insertLast()
 
 Circular list harus mempertahankan bentuk lingkaran setelah setiap operasi.
 
+8. Konsep Delete pada Circular Linked List
+
+Contoh: delete first atau delete last.
+
+Aturan:
+- Jika list kosong -> tidak bisa delete
+- Jika satu elemen -> setelah delete, list kosong
+- Jika banyak elemen -> pointer next dan prev disesuaikan agar tetap membentuk lingkaran
+
+Deletion harus memastikan:
+
+last->next = first
+
+first->prev = last
+
+Agar tidak merusak bentuk melingkar.
+
+9. Konsep printInfo() pada Circular Linked List
+
+Karena list melingkar, traversal tidak boleh memakai while(node != NULL).
+
+Melainkan traversal menggunakan pola:
+
+p = first
+do {
+    print(p->info)
+    p = p->next
+} while (p != first)
+
+Dengan cara ini, list dapat ditampilkan tanpa infinite loop.
+
+10. 
+
 ## 4. Guided
 ### 4.1 Guided 1
 ![alt text](ss/guided1.png)
