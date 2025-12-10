@@ -76,13 +76,18 @@ Induk 1 -> Anak: 10, 11
 Induk 2 -> Anak: 19, 20
 
 4. Konsep Delete pada Multi Linked List
+
 Tugas yang dikerjakan: menghapus anak terakhir dari induk tertentu.
+
 Aturan:
 - Jika list anak kosong -> tidak ada yang dihapus
 - Jika satu elemen -> hapus dan set first=last=NULL
 - Jika lebih dari satu -> pindahkan last ke last->prev
+
 Contoh hasil setelah delete untuk Induk 1:
+
 Sebelum: 10 -> 11
+
 Sesudah: 10
 
 5. Konsep Traversal Multi Linked List
