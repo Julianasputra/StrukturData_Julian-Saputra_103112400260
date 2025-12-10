@@ -17,6 +17,7 @@ Struktur data adalah cara mengorganisir, menyimpan, dan mengelola data agar dapa
 Multi Linked List adalah struktur data yang terdiri dari dua level linked list:
 - List Induk -> berisi elemen-elemen induk
 - List Anak -> setiap induk memiliki list anak sendiri
+
 Pada tugas ini:
 - Induk berisi ID induk
 - Anak berisi ID anak yang terhubung ke induknya
