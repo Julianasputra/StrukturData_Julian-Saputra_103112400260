@@ -31,12 +31,16 @@ Setiap induk memiliki:
 Multi linked list membantu pemisahan data berdasarkan kategori, sehingga efisien untuk operasi pencarian dan pengelompokan.
 
 2. Struktur Data Induk dan Anak
+
 Pada program, terdapat dua struktur utama:
+
 a. Struktur Induk
+
 Berisi:
 - info induk
 - list anak (first & last)
 - pointer next dan prev
+
 b. Struktur Anak
 Berisi:
 - info anak
