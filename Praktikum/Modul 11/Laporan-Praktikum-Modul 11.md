@@ -201,7 +201,9 @@ Tujuan modularisasi:
 Pada main.cpp, programmer hanya memanggil:
 
 insertLast(L, data);
+
 deleteFirst(L);
+
 printInfo(L);
 
 Sehingga alur program lebih bersih.
