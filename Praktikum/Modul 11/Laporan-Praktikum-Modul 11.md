@@ -42,27 +42,33 @@ Berisi:
 - pointer next dan prev
 
 b. Struktur Anak
+
 Berisi:
 - info anak
 - pointer next dan prev (doubly linked list)
+
 Struktur ganda ini memungkinkan data tersusun secara hierarki.
 
 3. Konsep Insert pada Multi Linked List
+
 a. Insert Last Induk
 Menambah induk di bagian belakang list induk.
+
 Langkah:
-a. Jika list kosong -> induk menjadi elemen pertama
-b. Jika tidak -> letakkan di posisi terakhir
-c. Perbarui pointer prev dan next
+- Jika list kosong -> induk menjadi elemen pertama
+- Jika tidak -> letakkan di posisi terakhir
+- Perbarui pointer prev dan next
 
 b. Insert Last Anak
 Menambahkan anak pada induk tertentu.
+
 Langkah:
-a. Temukan induk dengan findInduk()
-b. Tambahkan anak pada list anak induk
-c. Perbarui pointer prev dan next
+- Temukan induk dengan findInduk()
+- Tambahkan anak pada list anak induk
+- Perbarui pointer prev dan next
 
 Contoh struktur hasil:
+
 Induk 1 -> Anak: 10, 11
 Induk 2 -> Anak: 19, 20
 
