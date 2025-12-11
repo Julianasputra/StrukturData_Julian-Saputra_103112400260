@@ -269,10 +269,13 @@ Output :
 
 
 ## 6. Kesimpulan
-Jadi berdasarkan hasil pengerjaan program di atas, dapat saya simpulkan bahwa tujuan pembelajaran mengenai penerapan struktur data Queue (Antrian) telah berhasil dicapai. Melalui implementasi berbagai operasi seperti enqueue, dequeue, isEmpty, isFull, serta printInfo, saya mampu memahami bagaimana data dapat disimpan dan dikelola menggunakan prinsip FIFO (First In, First Out). Struktur data Queue memungkinkan pengelolaan data secara berurutan, di mana elemen yang masuk lebih dulu akan menjadi yang pertama keluar.
-Selain itu, penerapan konsep circular queue memberikan efisiensi yang lebih baik karena tidak memerlukan penggeseran elemen secara manual, sehingga operasi berjalan lebih optimal. Penggunaan fungsi-fungsi terpisah juga membuat program lebih rapi, mudah dipahami, dan sesuai dengan konsep modularisasi. Dengan demikian, praktikum ini memberikan pemahaman yang baik mengenai konsep dasar dan penerapan nyata dari struktur data Queue dalam bahasa C++.
+Jadi berdasarkan pemahaman dan implementasi struktur data pada program di atas, dapat disimpulkan bahwa tujuan pembelajaran mengenai penerapan Circular Linked List telah berhasil dicapai. Melalui berbagai operasi seperti insertFirst, insertLast, insertAfter, deleteFirst, deleteLast, deleteAfter, serta findElm, saya mampu memahami bagaimana sebuah list dapat dikelola secara dinamis menggunakan pointer.
+Circular Linked List memiliki karakteristik khusus, yaitu node terakhir selalu menunjuk kembali ke node pertama, sehingga membentuk struktur melingkar. Konsep ini memberikan keuntungan berupa kemudahan traversal tanpa titik akhir serta efisiensi dalam operasi penyisipan dan penghapusan, karena tidak memerlukan pergeseran elemen seperti pada struktur data berbasis array.
+Selain itu, penggunaan fungsi-fungsi terpisah pada header membuat program lebih terstruktur, mudah dipahami, dan sesuai dengan prinsip modularisasi dalam pemrograman. Dengan demikian, praktikum ini memberikan pemahaman yang kuat mengenai konsep dasar, operasi fundamental, dan penerapan nyata dari Circular Linked List dalam bahasa C++.
 
 ## 7. Referensi
-1. Programiz. “Queue Data Structure.” https://www.programiz.com/dsa/queue
-2. GeeksforGeeks. “Queue Data Structure (Introduction and Implementation).” https://www.geeksforgeeks.org/queue-data-structure/
-3. W3Schools. “C++ Arrays & Functions.” https://www.w3schools.com/cpp/cpp_arrays.asp
+1. Programiz. “Circular Linked List – Insertion and Deletion.” (https://www.programiz.com/dsa/circular-linked-list)
+2. GeeksforGeeks. “Circular Linked List | Set 1 (Introduction and Traversal).” (https://www.geeksforgeeks.org/circular-linked-list/)
+3. W3Schools. “C++ Pointers.” (https://www.w3schools.com/cpp/cpp_pointers.asp)
+4. Tutorialspoint. “C++ – Linked Lists.” (https://www.tutorialspoint.com/data_structures_algorithms/linked_list_algorithms.htm)
+5. J. Glenn Brookshear, Dennis Brylow. Computer Science: An Overview. Pearson – Bab Struktur Data (Linked List).
