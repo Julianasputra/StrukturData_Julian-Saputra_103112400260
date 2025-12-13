@@ -212,60 +212,73 @@ Sehingga alur program lebih bersih.
 ### 4.1 Guided 1
 ![alt text](ss/guided1.png)
 
-Penjelasan : Kode ini adalah header file untuk membangun ADT Multilist menggunakan double linked list. Multilist adalah struktur data yang terdiri dari list induk di mana setiap elemen induk memiliki list anak sendiri, sehingga membentuk hubungan “list di dalam list”. Pada bagian induk terdapat struktur elemen_induk yang menyimpan nilai info, sebuah list_anak, serta pointer next dan prev untuk membentuk double linked list. Struktur list_induk menyimpan pointer first dan last sebagai penanda awal dan akhir list induk. Sementara itu, bagian anak menggunakan struktur elemen_anak yang juga memiliki info, pointer next, dan prev sehingga list anak juga berbentuk double linked list. Struktur list_anak menyimpan pointer first dan last untuk mengelola urutan elemen anak.
-Header ini menyediakan berbagai fungsi operasi dasar pada list induk maupun anak. Fungsi seperti createList digunakan untuk menginisialisasi list induk agar kosong, sedangkan alokasi dan alokasiAnak membuat elemen baru untuk induk atau anak. Operasi penyisipan disediakan melalui insertFirstInduk, insertLastInduk, insertAfterInduk serta versi anaknya, yang memungkinkan penambahan elemen di depan, belakang, atau setelah elemen tertentu. Operasi penghapusan seperti deleteFirstInduk, deleteLastInduk, dan deleteAfterInduk juga tersedia untuk menghapus elemen induk, begitu pula dengan list anak. Fungsi pencarian findInduk dan findAnak digunakan untuk menemukan elemen berdasarkan nilai info. Terakhir, fungsi printInfo menampilkan seluruh isi list induk beserta list anak yang dimilikinya, sehingga struktur multilist dapat dilihat secara lengkap. Dengan demikian, file header ini menyediakan kerangka lengkap untuk membangun dan mengelola struktur multilist berbasis double linked list.
+Penjelasan : Kode ini adalah header file ADT Graph yang menggunakan representasi adjacency list. Graph terdiri dari kumpulan node dan edge yang menunjukkan hubungan antar node. Setiap node disimpan dalam list utama dan memiliki list edge sendiri yang menunjuk ke node lain yang terhubung.
+Struktur ElmNode menyimpan informasi node, penanda visited untuk keperluan DFS dan BFS, pointer ke edge pertama, serta pointer ke node berikutnya. Struktur ElmEdge digunakan untuk menyimpan hubungan antar node, sedangkan struktur Graph menyimpan pointer ke node pertama dalam graph.
+Header ini menyediakan fungsi dasar seperti pembuatan graph, penambahan node, penghubungan node (berarah dan tidak berarah), serta fungsi untuk menampilkan isi graph. Selain itu, tersedia juga fungsi DFS dan BFS untuk menelusuri graph, serta fungsi resetVisited untuk mengatur ulang status kunjungan node. Dengan demikian, file ini menjadi dasar untuk membangun dan mengelola struktur data graph.
 
 ### 4.2 Guided 2
 ![alt text](ss/guided2.png)
 
-Penjelasan : Kode ini adalah implementasi dari ADT Multilist menggunakan double linked list untuk list induk dan list anak. Fungsi createList digunakan untuk menginisialisasi list induk agar kosong dengan mengatur first dan last menjadi Nil. Fungsi alokasi membuat elemen induk baru, mengisi data info, mengosongkan pointer next dan prev, serta menginisialisasi list anak di dalamnya. Operasi penambahan elemen induk disediakan melalui insertFirstInduk, insertLastInduk, dan insertAfterInduk, yang masing-masing menyisipkan elemen di depan, belakang, atau setelah elemen tertentu, lengkap dengan pengaturan pointer next dan prev. Untuk penghapusan, fungsi deleteFirstInduk dan deleteLastInduk menghapus elemen induk di posisi awal atau akhir, sambil menangani kasus ketika list hanya berisi satu elemen. Fungsi findInduk digunakan untuk mencari elemen induk berdasarkan nilai info dengan melakukan traversal dari first hingga Nil. Terakhir, fungsi printInfo menampilkan seluruh isi multilist dengan mencetak data induk dan seluruh anak yang dimilikinya, atau menampilkan pesan jika sebuah induk tidak memiliki anak. Secara keseluruhan, kode ini menyediakan operasi dasar untuk pengelolaan multilist induk-anak menggunakan double linked list.
+Penjelasan : Kode ini adalah implementasi operasi edge pada ADT Graph yang menggunakan representasi adjacency list. Graph disusun dari kumpulan node, di mana setiap node dapat terhubung dengan node lain melalui edge.
+Fungsi findNode digunakan untuk mencari node tertentu di dalam graph berdasarkan nilai informasinya. Fungsi connectNode berfungsi untuk menghubungkan dua node secara berarah, yaitu dari node awal ke node tujuan dengan menambahkan edge ke dalam list edge milik node awal. Penambahan edge dilakukan di bagian akhir adjacency list agar urutan hubungan sesuai dengan urutan input.
+Selain itu, fungsi connectNodeUndirected digunakan untuk membentuk graph tidak berarah, yaitu dengan menambahkan dua edge sekaligus sehingga kedua node saling terhubung. Dengan demikian, kode ini menyediakan mekanisme dasar untuk membangun hubungan antar node pada graph, baik berarah maupun tidak berarah.
 
 ### 4.3 Guided 3
 ![alt text](ss/guided3.png)
 
-Penjelasan : Kode ini adalah implementasi operasi dasar untuk list anak pada struktur Multilist, yang dibangun menggunakan double linked list. Fungsi alokasiAnak digunakan untuk membuat node anak baru, mengisi nilai info, dan mengosongkan pointer next serta prev. Untuk menambahkan elemen anak, fungsi insertFirstAnak menyisipkan elemen di bagian depan list, sedangkan insertLastAnak menambahkannya di bagian belakang dengan memperbarui pointer first, last, serta hubungan next dan prev antar node. Penghapusan elemen anak dilakukan melalui deleteFirstAnak untuk menghapus elemen paling depan dan deleteLastAnak untuk menghapus elemen paling belakang, lengkap dengan penanganan kondisi ketika list hanya memiliki satu elemen. Secara keseluruhan, kode ini menyediakan operasi penyisipan dan penghapusan pada list anak dalam multilist menggunakan mekanisme double linked list sehingga data dapat dikelola secara fleksibel baik dari depan maupun belakang.
+Penjelasan : Kode ini adalah implementasi operasi dasar pada ADT Graph yang berkaitan dengan pembuatan dan pengelolaan node. Fungsi createGraph digunakan untuk menginisialisasi graph agar berada dalam kondisi kosong dengan mengatur pointer awal bernilai NULL. Fungsi allocateNode berfungsi untuk membuat node baru dengan mengisi data, mengatur status visited menjadi false, serta menginisialisasi pointer edge dan pointer ke node berikutnya.
+Fungsi insertNode digunakan untuk menambahkan node baru ke dalam graph. Node disisipkan ke bagian akhir list node sehingga urutan node sesuai dengan urutan penambahan. Dengan demikian, kode ini menyediakan fungsi dasar untuk membangun struktur graph sebelum node-node tersebut dihubungkan dengan edge.
 
 ### 4.4 Guided 4
 ![alt text](ss/guided4.png)
 
-Penjelasan : Kode ini adalah program utama yang digunakan untuk menguji ADT Multilist yang telah dibuat sebelumnya. Program diawali dengan mendeklarasikan sebuah list_induk dan menginisialisasinya menggunakan createList. Setelah list induk siap digunakan, program membuat elemen induk pertama dengan nilai 1 menggunakan fungsi alokasi, kemudian memasukkannya ke bagian belakang list induk melalui insertLastInduk. Selanjutnya dibuat satu elemen anak dengan nilai 10 dan ditambahkan ke list anak milik induk tersebut menggunakan insertLastAnak. Proses yang sama dilakukan untuk elemen induk kedua, yaitu membuat induk bernilai 2 dan menambahkannya ke list, lalu membuat elemen anak bernilai 20 dan memasukkannya ke list anak milik induk kedua. Setelah seluruh data ditambahkan, fungsi printInfo dipanggil untuk menampilkan seluruh isi multilist, yaitu setiap data induk beserta daftar anaknya masing-masing. Dengan demikian, kode ini berfungsi untuk mendemonstrasikan cara membangun dan menampilkan struktur multilist menggunakan operasi alokasi, penyisipan induk, penyisipan anak, dan pencetakan data.
+Penjelasan : Kode ini adalah fungsi-fungsi untuk menampilkan dan menelusuri ADT Graph menggunakan representasi adjacency list. Fungsi printGraph digunakan untuk menampilkan seluruh node beserta hubungan edge yang dimilikinya. Setiap node ditampilkan bersama daftar node lain yang terhubung dengannya.
+Fungsi printDFS digunakan untuk melakukan penelusuran graph dengan metode Depth First Search (DFS), yaitu menelusuri node secara mendalam dari satu node ke node lain yang belum dikunjungi. Fungsi printBFS digunakan untuk melakukan penelusuran graph dengan metode Breadth First Search (BFS) menggunakan struktur data queue, sehingga penelusuran dilakukan secara melebar per level.
+Selain itu, fungsi resetVisited digunakan untuk mengatur ulang status kunjungan (visited) pada seluruh node agar proses DFS atau BFS dapat dijalankan kembali. Dengan demikian, kode ini menyediakan operasi penelusuran dan penampilan graph secara lengkap dan terstruktur.
+
+### 4.5 Guided 5
+![alt text](ss/guided5.png)
+
+Penjelasan : Kode ini adalah program utama (main) yang digunakan untuk menguji implementasi ADT Graph. Pada awal program, graph dibuat dan diinisialisasi agar dalam keadaan kosong. Selanjutnya, beberapa node dimasukkan ke dalam graph, yaitu node A, B, C, dan D.
+Setelah node berhasil ditambahkan, program menghubungkan node-node tersebut menggunakan fungsi connectNode sehingga terbentuk hubungan antar node sesuai dengan struktur graph berarah. Terakhir, fungsi printGraph digunakan untuk menampilkan isi graph beserta hubungan antar node ke layar. Dengan demikian, program ini berfungsi sebagai contoh penggunaan ADT Graph untuk membangun dan menampilkan struktur graph sederhana.
 
 Output : 
 
-![alt text](ss/outputG4.png)
+![alt text](ss/outputG5.png)
 
 ## 5. Unguided
 ### 5.1 Unguided 1
 ![alt text](ss/unguided1.png)
 
-Penjelasan : Kode ini adalah program utama yang digunakan untuk menguji operasi pada ADT Multilist, yang terdiri dari list induk dengan masing-masing memiliki list anak. Program dimulai dengan membuat sebuah list_induk dan menginisialisasinya menggunakan createList. Selanjutnya dibuat dua elemen induk dengan nilai 1 dan 2, yang kemudian ditambahkan ke bagian belakang list menggunakan insertLastInduk. Untuk induk pertama, dua elemen anak dengan nilai 10 dan 11 ditambahkan melalui insertLastAnak, sehingga keduanya berada di urutan belakang list anak milik induk tersebut. Untuk induk kedua, dua anak juga ditambahkan: anak bernilai 20 dimasukkan di belakang menggunakan insertLastAnak, sedangkan anak bernilai 19 disisipkan di depan menggunakan insertFirstAnak, sehingga menjadi elemen pertama pada list anak milik induk kedua. Setelah semua data berhasil ditambahkan, fungsi printInfo dipanggil untuk menampilkan seluruh struktur multilist.
-Program kemudian melanjutkan dengan operasi penghapusan, yaitu menghapus elemen anak terakhir dari induk pertama menggunakan deleteLastAnak. Node yang terhapus disimpan pada variabel PDel. Setelah proses penghapusan selesai, list kembali ditampilkan menggunakan printInfo untuk memperlihatkan perubahan pada struktur data. Secara keseluruhan, kode ini mendemonstrasikan cara membuat multilist, menambahkan induk dan anak, serta menghapus elemen anak menggunakan operasi-operasi ADT double linked list.
+Penjelasan : Kode ini adalah program utama yang digunakan untuk membangun dan menampilkan graph tidak berarah menggunakan ADT Graph. Program diawali dengan pembuatan graph kosong, kemudian menambahkan node A sampai H ke dalam graph.
+Setelah itu, setiap node dihubungkan menggunakan fungsi connectNodeUndirected, sehingga hubungan antar node bersifat dua arah. Hubungan tersebut disusun sesuai dengan soal, di mana node A terhubung ke B dan C, node B dan C memiliki cabang masing-masing, dan semua jalur akhirnya terhubung ke node H.
+Terakhir, fungsi printGraph digunakan untuk menampilkan seluruh isi graph beserta hubungan antar node ke layar. Dengan demikian, program ini berfungsi untuk menguji dan memperlihatkan struktur graph tidak berarah yang telah dibangun.
 
 Output : 
 
 ![alt text](ss/outputU1.png)
 
 ### 5.2 Unguided 2
-
-#### Circular.h
-![alt text](ss/circularh.png)
-
-Penjelasan : Kode ini adalah header file untuk membangun ADT Circular Linked List yang digunakan untuk menyimpan data mahasiswa. Setiap elemen list menyimpan informasi berupa nama, NIM, jenis kelamin, dan IPK, yang didefinisikan dalam struktur infotype. Struktur ElmList mewakili node dalam circular list, berisi data mahasiswa dan pointer next yang menunjuk ke elemen berikutnya, di mana elemen terakhir akan menunjuk kembali ke elemen pertama sehingga membentuk list melingkar. Struktur List hanya menyimpan satu pointer yaitu First sebagai penanda awal list. Fungsi CreateList digunakan untuk menginisialisasi list kosong dengan mengatur pointer pertama menjadi NULL. Fungsi alokasi membuat node baru dan mengisi datanya, sedangkan dealokasi digunakan untuk membebaskan memori node yang sudah tidak dipakai.
-Untuk operasi penyisipan, tersedia insertFirst, insertAfter, dan insertLast yang memungkinkan penambahan node di depan, setelah node tertentu, atau di bagian akhir list sambil tetap mempertahankan struktur circular. Operasi penghapusan dilakukan melalui deleteFirst, deleteAfter, dan deleteLast untuk menghapus node dari posisi tertentu dengan memastikan hubungan circular antar elemen tetap konsisten. Fungsi findElm digunakan untuk mencari elemen berdasarkan data mahasiswa, sedangkan printInfo mencetak seluruh isi circular list mulai dari elemen pertama hingga kembali lagi ke awal. Secara keseluruhan, header ini menyediakan seluruh operasi dasar untuk membangun dan mengelola Circular Linked List yang menyimpan data mahasiswa secara dinamis.
-
-#### Circular.cpp
-![alt text](ss/circularcpp.png)
-
-Penjelasan : Kode ini adalah implementasi lengkap dari ADT Circular Linked List yang digunakan untuk menyimpan dan mengelola data mahasiswa. Fungsi CreateList menginisialisasi list agar kosong dengan mengatur pointer First menjadi NULL. Fungsi alokasi membuat node baru berisi data mahasiswa dan mengatur pointer next menjadi NULL, sedangkan dealokasi digunakan untuk menghapus node dan membebaskan memori. Operasi penyisipan elemen dilakukan melalui beberapa fungsi: insertFirst menambahkan node di bagian awal list dengan menjaga agar node terakhir tetap menunjuk kembali ke elemen pertama, insertAfter menyisipkan node setelah elemen tertentu, dan insertLast menambahkan node di posisi terakhir sebelum kembali ke First. Untuk penghapusan elemen, tersedia deleteFirst yang menghapus node pertama dengan memperbarui pointer First dan menjaga hubungan circular, deleteAfter yang menghapus node setelah elemen tertentu, serta deleteLast yang menghapus node paling akhir dan mengatur ulang node sebelumnya agar menunjuk ke First. Fungsi findElm digunakan untuk mencari data mahasiswa berdasarkan NIM dengan melakukan traversing mengelilingi list hingga kembali ke node pertama. Terakhir, printInfo digunakan untuk menampilkan seluruh isi circular linked list, mencetak data mahasiswa dari elemen pertama hingga kembali ke awal list. Secara keseluruhan, kode ini memberikan semua operasi penting untuk membangun, menambah, menghapus, mencari, dan mencetak elemen dalam struktur circular linked list.
-
-#### Unguided2.cpp
 ![alt text](ss/unguided2.png)
 
-Penjelasan : Kode ini adalah program utama yang digunakan untuk menguji berbagai operasi pada ADT Circular Linked List yang menyimpan data mahasiswa. Program diawali dengan membuat sebuah list kosong menggunakan CreateList. Untuk mempermudah pembuatan data, fungsi createData digunakan untuk membentuk objek mahasiswa dan langsung mengalokasikannya sebagai node list. Selanjutnya, beberapa operasi penyisipan dilakukan: insertFirst digunakan untuk menambahkan data di awal list, sedangkan insertLast menambahkannya di akhir list sambil tetap menjaga sifat circular dari struktur data. Setelah beberapa data mahasiswa dimasukkan, program melakukan penyisipan berbasis pencarian, yaitu dengan mencari node tertentu menggunakan findElm berdasarkan NIM. Jika elemen ditemukan, maka elemen baru disisipkan setelahnya menggunakan insertAfter, seperti penyisipan data “Cindi” setelah mahasiswa dengan NIM ”07”, atau “Hilmi” setelah NIM “02”. Setelah seluruh proses penambahan dan penyisipan selesai, fungsi printInfo dipanggil untuk menampilkan seluruh isi circular linked list secara berurutan mulai dari elemen pertama hingga kembali lagi ke awal. Secara keseluruhan, kode ini menunjukkan cara membangun list melingkar, mengisi data mahasiswa dengan berbagai metode penyisipan, melakukan pencarian, dan menampilkan hasilnya.
+Penjelasan : Kode ini adalah program utama yang digunakan untuk membangun graph tidak berarah dan melakukan penelusuran Depth First Search (DFS). Program dimulai dengan membuat graph kosong, lalu menambahkan node A sampai H ke dalam graph.
+Setelah semua node dibuat, hubungan antar node dibentuk menggunakan fungsi connectNodeUndirected sehingga setiap sisi berlaku dua arah sesuai dengan struktur graph pada soal. Sebelum melakukan DFS, fungsi resetVisited dipanggil untuk memastikan seluruh node berada dalam kondisi belum dikunjungi.
+Proses DFS dimulai dari node A dengan memanggil fungsi printDFS, yang akan menelusuri graph secara mendalam dari satu cabang ke cabang lainnya dan menampilkan urutan kunjungan node ke layar. Dengan demikian, program ini berfungsi untuk membangun graph dan menampilkan hasil penelusuran DFS dari node awal.
 
 Output : 
 
 ![alt text](ss/outputU2.png)
+
+### 5.3 Unguided 3
+![alt text](ss/unguided3.png)
+
+Penjelasan : Kode ini adalah program utama yang digunakan untuk membangun graph tidak berarah dan melakukan penelusuran Breadth First Search (BFS). Program diawali dengan membuat graph kosong, kemudian menambahkan node A sampai H ke dalam graph.
+Selanjutnya, hubungan antar node dibentuk menggunakan fungsi connectNodeUndirected sehingga setiap sisi bersifat dua arah sesuai dengan struktur graph pada soal. Setelah graph terbentuk, fungsi resetVisited dipanggil untuk mengatur ulang status kunjungan semua node agar BFS dapat berjalan dengan benar.
+Proses BFS dimulai dari node A dengan memanggil fungsi printBFS. Penelusuran dilakukan secara melebar, yaitu mengunjungi semua node yang bertetangga terlebih dahulu sebelum berpindah ke level berikutnya, lalu hasil urutan kunjungan node ditampilkan ke layar. Dengan demikian, program ini berfungsi untuk menampilkan hasil penelusuran BFS pada graph yang telah dibuat.
+
+Output : 
+
+![alt text](ss/outputU3.png)
 
 
 ## 6. Kesimpulan

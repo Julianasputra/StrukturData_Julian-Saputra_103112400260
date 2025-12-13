@@ -7,7 +7,6 @@ int main() {
     Graph G;
     createGraph(G);
 
-    // Insert semua node sesuai soal
     insertNode(G, 'A');
     insertNode(G, 'B');
     insertNode(G, 'C');
@@ -17,7 +16,6 @@ int main() {
     insertNode(G, 'G');
     insertNode(G, 'H');
 
-    // Hubungan antar node (TIDAK BERARAH) sesuai gambar soal
     connectNodeUndirected(G, 'A', 'B');
     connectNodeUndirected(G, 'A', 'C');
 

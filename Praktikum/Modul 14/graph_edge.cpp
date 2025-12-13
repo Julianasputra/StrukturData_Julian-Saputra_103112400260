@@ -30,7 +30,6 @@ void connectNode(Graph &G, infoGraph start, infoGraph end) {
     }
 }
 
-
 void connectNodeUndirected(Graph &G, infoGraph A, infoGraph B) {
     connectNode(G, A, B);
     connectNode(G, B, A);

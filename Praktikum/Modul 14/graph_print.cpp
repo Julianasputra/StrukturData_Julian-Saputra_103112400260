@@ -18,7 +18,6 @@ void printGraph(Graph G) {
 void printDFS(Graph G, adrNode N) {
     if (N == NULL) return;
 
-    // Tandai node sudah dikunjungi
     N->visited = true;
     cout << N->info << " ";
 

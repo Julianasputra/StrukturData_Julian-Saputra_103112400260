@@ -7,7 +7,6 @@ int main() {
     Graph G;
     createGraph(G);
 
-    // Insert node
     insertNode(G, 'A');
     insertNode(G, 'B');
     insertNode(G, 'C');
@@ -17,7 +16,6 @@ int main() {
     insertNode(G, 'G');
     insertNode(G, 'H');
 
-    // Graph tidak berarah
     connectNodeUndirected(G, 'A', 'B');
     connectNodeUndirected(G, 'A', 'C');
     connectNodeUndirected(G, 'B', 'D');
@@ -29,10 +27,9 @@ int main() {
     connectNodeUndirected(G, 'F', 'H');
     connectNodeUndirected(G, 'G', 'H');
 
-    // DFS
     resetVisited(G);
     cout << "\nHasil DFS dari node A: ";
-    printDFS(G, G.first);   // mulai dari A
+    printDFS(G, G.first);   
     cout << endl;
 
     return 0;
