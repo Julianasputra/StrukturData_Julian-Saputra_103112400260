@@ -20,3 +20,8 @@ void connectNode(Graph &G, infoGraph start, infoGraph end){
         pStart -> firstEdge = newEdge;
     }
 }
+
+void connectNodeUndirected(Graph &G, infoGraph A, infoGraph B) {
+    connectNode(G, A, B);
+    connectNode(G, B, A);
+}

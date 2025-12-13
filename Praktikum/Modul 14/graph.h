@@ -28,5 +28,6 @@ adrNode allocateNode(infoGraph X);
 void insertNode(Graph &G, infoGraph X);
 void connectNode(Graph &G, infoGraph start, infoGraph end);
 void printGraph(Graph G);
+void connectNodeUndirected(Graph &G, infoGraph A, infoGraph B);
 
 #endif
