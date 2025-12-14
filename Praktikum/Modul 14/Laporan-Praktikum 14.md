@@ -13,7 +13,7 @@ Struktur data adalah cara untuk menyimpan, mengatur, dan mengelola data agar dap
 
 ### Berikut Dasar Teori nya :
 
-1.Konsep Graph
+1. Konsep Graph
 
 Graph merupakan struktur data yang terdiri dari kumpulan node (vertex) dan hubungan antar node yang disebut edge. Setiap node merepresentasikan sebuah objek, sedangkan edge menunjukkan keterhubungan antar objek tersebut. Graph umumnya dinotasikan sebagai G = (V, E), di mana V adalah himpunan node dan E adalah himpunan edge. Dalam praktikum ini, node dilambangkan dengan huruf seperti A, B, C, dan seterusnya.
 
