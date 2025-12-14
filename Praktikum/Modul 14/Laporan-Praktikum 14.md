@@ -9,204 +9,49 @@
 Saya sangat termotivasi memperlajari struktur data, kenapa saya belajat stuktur data karena saya sadar kalau struktur data itu pondasi yang sangat penting dalam pemrograman contohnya seperti kita akan membangun rumah yang membutuhkan pondasi. Lalu juga banyak aplikasi atau teknologi di dunia nyata contohnya kaya sistem pencarian, manajemen database, sampai ada juga kecerdasan buatan yang bekerja secara efisien dikarenakan menggunakan struktur data yang tepat dan baik. Jadi karena itu saya termotivasi belajar struktur data ini.
 
 ## 3. Dasar Teori
-Struktur data adalah cara mengorganisir, menyimpan, dan mengelola data agar dapat diakses serta diproses dengan efisien. Pada praktikum ini digunakan dua jenis struktur data yang lebih kompleks, yaitu Multi Linked List (untuk hubungan Induk–Anak) dan Circular Linked List (untuk struktur melingkar tanpa ujung). Kedua struktur ini digunakan untuk menangani data hierarki dan data berulang yang membutuhkan efisiensi traversal.
+Struktur data adalah cara untuk menyimpan, mengatur, dan mengelola data agar dapat digunakan secara efisien. Pada praktikum ini digunakan struktur data Graph yang direpresentasikan menggunakan Adjacency List berbasis linked list. Graph sangat cocok untuk memodelkan hubungan antar data, seperti jaringan komputer, peta, dan struktur keterkaitan antar objek.
 
 ### Berikut Dasar Teori nya :
 
-1. Konsep Multi Linked List (Induk–Anak)
+1.Konsep Graph
 
-Multi Linked List adalah struktur data yang terdiri dari dua level linked list:
-- List Induk -> berisi elemen-elemen induk
-- List Anak -> setiap induk memiliki list anak sendiri
+Graph merupakan struktur data yang terdiri dari kumpulan node (vertex) dan hubungan antar node yang disebut edge. Setiap node merepresentasikan sebuah objek, sedangkan edge menunjukkan keterhubungan antar objek tersebut. Graph umumnya dinotasikan sebagai G = (V, E), di mana V adalah himpunan node dan E adalah himpunan edge. Dalam praktikum ini, node dilambangkan dengan huruf seperti A, B, C, dan seterusnya.
 
-Pada tugas ini:
-- Induk berisi ID induk
-- Anak berisi ID anak yang terhubung ke induknya
+2. Graph Tidak Berarah (Undirected Graph)
 
-Setiap induk memiliki:
-- data (info)
-- pointer ke anak pertama dan terakhir (doubly linked list)
-- pointer ke induk berikutnya dan sebelumnya
+Graph tidak berarah adalah graph yang memiliki hubungan dua arah antar node. Jika sebuah node A terhubung ke node B, maka node B juga terhubung ke node A. Pada program, konsep ini diterapkan dengan menambahkan dua edge untuk setiap hubungan, yaitu dari A ke B dan dari B ke A. Hal ini diimplementasikan melalui fungsi connectNodeUndirected() agar keterhubungan antar node bersifat dua arah.
 
-Multi linked list membantu pemisahan data berdasarkan kategori, sehingga efisien untuk operasi pencarian dan pengelompokan.
+3. Representasi Graph dengan Adjacency List
 
-2. Struktur Data Induk dan Anak
+Adjacency list adalah cara merepresentasikan graph dengan menyimpan setiap node beserta daftar node tetangganya. Setiap node memiliki pointer ke list edge yang berisi node-node yang terhubung dengannya. Representasi ini lebih efisien dalam penggunaan memori dibandingkan adjacency matrix, terutama jika jumlah edge tidak terlalu banyak. Selain itu, adjacency list memudahkan proses traversal seperti DFS dan BFS.
 
-Pada program, terdapat dua struktur utama:
+4. Struktur Node dan Edge
 
-a. Struktur Induk
+Dalam program, graph dibangun menggunakan dua struktur utama, yaitu node dan edge. Struktur node menyimpan informasi berupa data node, penanda kunjungan (visited), pointer ke edge pertama, dan pointer ke node berikutnya. Sementara itu, struktur edge menyimpan pointer ke node tujuan dan pointer ke edge berikutnya. Kombinasi kedua struktur ini membentuk graph berbasis linked list.
 
-Berisi:
-- info induk
-- list anak (first & last)
-- pointer next dan prev
+5. Konsep Traversal Graph
 
-b. Struktur Anak
+Traversal graph adalah proses mengunjungi seluruh node dalam graph dengan aturan tertentu. Traversal diperlukan untuk melihat struktur graph dan urutan keterhubungan antar node. Agar traversal tidak mengunjungi node yang sama berulang kali, digunakan atribut visited pada setiap node sebagai penanda apakah node tersebut sudah dikunjungi atau belum.
 
-Berisi:
-- info anak
-- pointer next dan prev (doubly linked list)
+6. Depth First Search (DFS)
 
-Struktur ganda ini memungkinkan data tersusun secara hierarki.
+Depth First Search (DFS) adalah metode traversal graph yang menelusuri node secara mendalam. Traversal dimulai dari satu node, kemudian dilanjutkan ke salah satu node tetangganya hingga tidak ada node lain yang dapat dikunjungi, lalu kembali ke node sebelumnya. DFS biasanya diimplementasikan menggunakan rekursi. Pada program, DFS digunakan untuk menampilkan urutan kunjungan node berdasarkan penelusuran terdalam terlebih dahulu.
 
-3. Konsep Insert pada Multi Linked List
+7. Breadth First Search (BFS)
 
-a. Insert Last Induk
+Breadth First Search (BFS) adalah metode traversal graph yang menelusuri node secara melebar. Traversal dimulai dari node awal, kemudian mengunjungi semua node tetangganya terlebih dahulu sebelum berpindah ke level berikutnya. BFS menggunakan struktur data queue untuk menyimpan node yang akan dikunjungi. Metode ini cocok digunakan untuk pencarian berdasarkan level atau jarak terdekat.
 
-Menambah induk di bagian belakang list induk.
+8. Konsep Reset Visited
 
-Langkah:
-- Jika list kosong -> induk menjadi elemen pertama
-- Jika tidak -> letakkan di posisi terakhir
-- Perbarui pointer prev dan next
+Sebelum melakukan traversal DFS atau BFS, seluruh node harus dikembalikan ke status belum dikunjungi. Hal ini dilakukan dengan mengatur nilai visited pada setiap node menjadi false. Fungsi resetVisited() digunakan agar traversal dapat dijalankan kembali dengan hasil yang benar tanpa terpengaruh oleh proses traversal sebelumnya.
 
-b. Insert Last Anak
+9. Konsep Modularisasi Program
 
-Menambahkan anak pada induk tertentu.
+Program graph dibangun dengan konsep modularisasi, yaitu memisahkan kode ke dalam beberapa file sesuai fungsinya. File header digunakan untuk deklarasi struktur dan fungsi, sedangkan file implementasi berisi definisi fungsi-fungsi tersebut. Main program hanya berisi pemanggilan fungsi. Modularisasi membuat program lebih rapi, mudah dipahami, dan mudah dikembangkan.
 
-Langkah:
-- Temukan induk dengan findInduk()
-- Tambahkan anak pada list anak induk
-- Perbarui pointer prev dan next
+10. Alur Program Secara Umum
 
-Contoh struktur hasil:
-
-Induk 1 -> Anak: 10, 11
-
-Induk 2 -> Anak: 19, 20
-
-4. Konsep Delete pada Multi Linked List
-
-Tugas yang dikerjakan: menghapus anak terakhir dari induk tertentu.
-
-Aturan:
-- Jika list anak kosong -> tidak ada yang dihapus
-- Jika satu elemen -> hapus dan set first=last=NULL
-- Jika lebih dari satu -> pindahkan last ke last->prev
-
-Contoh hasil setelah delete untuk Induk 1:
-
-Sebelum: 10 -> 11
-
-Sesudah: 10
-
-5. Konsep Traversal Multi Linked List
-
-Traversal dilakukan dua level:
-- traversal induk
-- pada setiap induk, traversal anak
-
-Fungsi printInfo() dilakukan untuk menampilkan:
-
-Induk ID: 1
-
-    -> Anak ID: 10
-
-    -> Anak ID: 11
-
-Induk ID: 2
-
-    -> Anak ID: 19
-
-    -> Anak ID: 20
-
-Traversal bersarang ini sangat penting untuk memvisualisasikan multilist.
-
-6. Konsep Circular Linked List
-
-Circular Linked List adalah bentuk linked list di mana:
-- Node terakhir tidak menunjuk ke NULL
-- Tetapi menunjuk kembali ke node pertama
-
-Sehingga list bersifat melingkar.
-
-Kelebihan Circular Linked List:
-- Tidak ada akhir list -> traversal bisa berputar
-- Efisien untuk struktur data yang membutuhkan “rotasi”
-
-Cocok untuk:
-- sistem giliran (round robin)
-- antrian melingkar
-- permainan kartu
-- aplikasi navigasi siklus
-
-Pada tugas ini circular linked list digunakan untuk menyimpan data siswa atau harga barang secara melingkar.
-
-7. Konsep Insert pada Circular Linked List
-
-Operasi insert pada circular list umumnya:
-
-a. insertFirst()
-- Jika list kosong -> first menunjuk dirinya sendiri
-- Jika tidak -> node baru disisipkan sebelum first
-- Node terakhir harus menunjuk ke node baru
-
-b. insertLast()
-- Menambahkan node sebelum node first
-- Update last -> menunjuk kembali ke first
-- Pointer previous juga disesuaikan (doubly circular list)
-
-Circular list harus mempertahankan bentuk lingkaran setelah setiap operasi.
-
-8. Konsep Delete pada Circular Linked List
-
-Contoh: delete first atau delete last.
-
-Aturan:
-- Jika list kosong -> tidak bisa delete
-- Jika satu elemen -> setelah delete, list kosong
-- Jika banyak elemen -> pointer next dan prev disesuaikan agar tetap membentuk lingkaran
-
-Deletion harus memastikan:
-
-last->next = first
-
-first->prev = last
-
-Agar tidak merusak bentuk melingkar.
-
-9. Konsep printInfo() pada Circular Linked List
-
-Karena list melingkar, traversal tidak boleh memakai while(node != NULL).
-
-Melainkan traversal menggunakan pola:
-
-p = first
-
-do {
-
-    print(p->info)
-
-    p = p->next
-
-} while (p != first)
-
-Dengan cara ini, list dapat ditampilkan tanpa infinite loop.
-
-10. Konsep Modularisasi (Memecah Fungsi)
-
-Baik multilist maupun circular list ditulis menggunakan modularisasi:
-- createList()
-- alokasi()
-- insertFirst()
-- insertLast()
-- deleteLast()
-- printInfo()
-
-Tujuan modularisasi:
-- kode lebih rapi
-- mudah diperbaiki
-- setiap fungsi fokus pada satu tugas (single responsibility)
-
-Pada main.cpp, programmer hanya memanggil:
-
-insertLast(L, data);
-
-deleteFirst(L);
-
-printInfo(L);
-
-Sehingga alur program lebih bersih.
+Alur program dimulai dengan membuat graph kosong, kemudian menambahkan node ke dalam graph. Setelah itu, node-node dihubungkan menggunakan edge tidak berarah. Sebelum traversal dilakukan, status visited di-reset terlebih dahulu. Selanjutnya program melakukan traversal DFS atau BFS dari node awal dan menampilkan hasil penelusuran ke layar.
 
 ## 4. Guided
 ### 4.1 Guided 1
@@ -282,13 +127,17 @@ Output :
 
 
 ## 6. Kesimpulan
-Jadi berdasarkan pemahaman dan implementasi struktur data pada program di atas, dapat disimpulkan bahwa tujuan pembelajaran mengenai penerapan Circular Linked List telah berhasil dicapai. Melalui berbagai operasi seperti insertFirst, insertLast, insertAfter, deleteFirst, deleteLast, deleteAfter, serta findElm, saya mampu memahami bagaimana sebuah list dapat dikelola secara dinamis menggunakan pointer.
-Circular Linked List memiliki karakteristik khusus, yaitu node terakhir selalu menunjuk kembali ke node pertama, sehingga membentuk struktur melingkar. Konsep ini memberikan keuntungan berupa kemudahan traversal tanpa titik akhir serta efisiensi dalam operasi penyisipan dan penghapusan, karena tidak memerlukan pergeseran elemen seperti pada struktur data berbasis array.
-Selain itu, penggunaan fungsi-fungsi terpisah pada header membuat program lebih terstruktur, mudah dipahami, dan sesuai dengan prinsip modularisasi dalam pemrograman. Dengan demikian, praktikum ini memberikan pemahaman yang kuat mengenai konsep dasar, operasi fundamental, dan penerapan nyata dari Circular Linked List dalam bahasa C++.
+Jadi berdasarkan pemahaman dan implementasi struktur data pada program di atas, dapat disimpulkan bahwa tujuan pembelajaran mengenai penerapan struktur data Graph telah berhasil dicapai. Melalui pembuatan node, penghubungan antar node menggunakan edge tidak berarah, serta penerapan traversal DFS dan BFS, mahasiswa dapat memahami cara merepresentasikan dan mengelola hubungan antar data secara sistematis.
+
+Graph yang direpresentasikan menggunakan adjacency list berbasis linked list terbukti efisien dalam menyimpan hubungan antar node dan memudahkan proses traversal. Penggunaan atribut visited sangat penting untuk mencegah node dikunjungi lebih dari satu kali, sehingga proses DFS dan BFS dapat berjalan dengan benar dan terkontrol.
+
+Metode Depth First Search (DFS) memungkinkan penelusuran graph secara mendalam hingga ke node terdalam sebelum kembali, sedangkan Breadth First Search (BFS) menelusuri graph secara melebar berdasarkan level dengan bantuan struktur data queue. Kedua metode ini memberikan pemahaman yang berbeda mengenai pola penelusuran graph dan kegunaannya dalam berbagai kasus.
+
+Selain itu, penerapan modularisasi program dengan pemisahan file header, file implementasi, dan file main membuat program lebih terstruktur, mudah dibaca, dan mudah dikembangkan. Dengan demikian, praktikum ini memberikan pemahaman yang baik mengenai konsep dasar graph, teknik traversal, serta penerapannya dalam bahasa pemrograman C++.
 
 ## 7. Referensi
-1. Programiz. “Circular Linked List – Insertion and Deletion.” (https://www.programiz.com/dsa/circular-linked-list)
-2. GeeksforGeeks. “Circular Linked List | Set 1 (Introduction and Traversal).” (https://www.geeksforgeeks.org/circular-linked-list/)
-3. W3Schools. “C++ Pointers.” (https://www.w3schools.com/cpp/cpp_pointers.asp)
-4. Tutorialspoint. “C++ – Linked Lists.” (https://www.tutorialspoint.com/data_structures_algorithms/linked_list_algorithms.htm)
-5. J. Glenn Brookshear, Dennis Brylow. Computer Science: An Overview. Pearson – Bab Struktur Data (Linked List).
+1. Programiz. “Graph Data Structure.” (https://www.programiz.com/dsa/graph)
+2. Programiz. “Depth First Search (DFS) Algorithm.” (https://www.programiz.com/dsa/depth-first-search)
+3. Programiz. “Breadth First Search (BFS) Algorithm.” (https://www.programiz.com/dsa/breadth-first-search)
+4. GeeksforGeeks. “Graph Data Structure and Algorithms.” (https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/)
+5. W3Schools. “C++ Pointers.” (https://www.w3schools.com/cpp/cpp_pointers.asp)
